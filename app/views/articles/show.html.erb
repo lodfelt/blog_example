@@ -15,6 +15,10 @@
 <%= link_to 'Back', articles_path %>
 <%= link_to 'Destroy', @article, :confirm => 'Are you sure?', :method => :delete %>
 
+<% @article.comments.each do |comment| %>
+  <%= render partial: "comments/comment", locals: { comment: comment }%>
+<% end %>
+
 <h2>Comments</h2>
 
 <%= form_for([@article, @article.comments.build]) do |f| %>
