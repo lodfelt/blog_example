@@ -8,7 +8,16 @@
 
 
 
-// ----- Styliung for articles
+// ----- Navbar
+
+.navbar .container {
+  width: 1170px;
+  .nav {
+    float: right;
+  }
+}
+
+// ----- Styling for articles
 
 article {
   .body {

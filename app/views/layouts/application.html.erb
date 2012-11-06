@@ -13,7 +13,7 @@
     <header class="navbar">
       <nav class="navbar-inner">
         <div class="container">
-          <%#= render 'layouts/navigation' %>
+          <%= render 'layouts/navigation' %>
         </div>
       </nav>
     </header>
@@ -23,7 +23,7 @@
           <div class="span12">
             <%= render 'layouts/messages' %>
             <aside>
-              <%= render(:partial => 'shared/tags') %>
+              <%= render(:partial => 'shared/tags') unless current_user.blank? %>
             </aside>
             <%= yield %>
           </div>

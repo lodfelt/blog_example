@@ -9,6 +9,7 @@ class Article < ActiveRecord::Base
   has_many :tags, through: :taggings
   validates_numericality_of :user_id
   belongs_to :user
+  scope :published, -> { where(published: true) }
 
   attr_writer :tag_names
   after_save :assign_tags
