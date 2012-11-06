@@ -1,21 +1,11 @@
-hej
-<div>
-  <p>
-  <p>
-    <b>Name:</b>
+<li class="comment">
+  <div class = "comment-author">
     <%= comment.name %>
-  </p>
-
-  <p>
-    <b>Email:</b>
-    <%= comment.email %>
-  </p>
-
-  <p>
-    <b>Body:</b>
-    <%= comment.body %>
-  </p>
-
-  <%= link_to 'Edit', edit_article_comment_path(@article, comment) %> |
-  <%= link_to 'Delete', article_comment_path(@article, comment), :confirm => 'Are you sure?', :method => :delete %>
-</div>
+    <time><%= comment.created_at %></time>
+    <%= link_to 'Edit', edit_article_comment_path(@article, comment) %>
+    <%= link_to 'Delete', article_comment_path(@article, comment), :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+  <div class="comment-body">
+    <%= simple_format comment.body %>
+  </div>
+</li>

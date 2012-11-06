@@ -4,7 +4,51 @@
 @import "compass/css3";
 @import "compass/typography";
 
-// Partial imports
+// ------ Partial imports
 
 
+
+// ----- Styliung for articles
+
+article {
+  .body {
+    margin-bottom:1.5em;
+  }
+  #article-content{
+    h1 {
+      font-size: 3em;
+      line-height: 1;
+      margin-bottom: 10px;
+      padding-left: 0;
+    }
+    h2 {
+      font-size: 2em;
+    }
+  }
+}
+
+// ----- Comments on blog-articles
+#comments {
+  margin-bottom: 25px;
+  border: 1px solid #666;
+  background: #F1F1F1;
+
+  .comment {
+    @include border-radius(2px);
+    padding: 10px;
+    .comment-author {
+      font-weight:bold;
+      time {
+        font-weight: normal;
+        font-size: 10px;
+        color: #999;
+      }
+    }
+
+    .comment-body {
+    }
+  }
+}
+
+//------ must be placed last
 @import "bootstrap-responsive";
