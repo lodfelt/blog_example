@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
-  # GET /articles
-  # GET /articles.json
+  load_and_authorize_resource :article
+
   def index
-    @articles = Article.all
+    @articles = Article.all(include: :user)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,19 +10,13 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # GET /articles/1
-  # GET /articles/1.json
   def show
-    @article = Article.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @article }
     end
   end
 
-  # GET /articles/new
-  # GET /articles/new.json
   def new
     @article = Article.new
 
@@ -32,16 +26,13 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # GET /articles/1/edit
   def edit
-    @article = Article.find(params[:id])
   end
 
-  # POST /articles
-  # POST /articles.json
   def create
     @article = Article.new(params[:article])
-
+    authorize! :create, @article
+    @article.user_id = current_user.id
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -53,11 +44,7 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # PUT /articles/1
-  # PUT /articles/1.json
   def update
-    @article = Article.find(params[:id])
-
     respond_to do |format|
       if @article.update_attributes(params[:article])
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
@@ -72,9 +59,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
-
     respond_to do |format|
       format.html { redirect_to articles_url }
       format.json { head :no_content }

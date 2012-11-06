@@ -33,6 +33,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "devise", "~> 2.1.2"
+gem "cancan", "~> 1.6.8"
 # gem 'simple_form'
 
 # To use Jbuilder templates for JSON
