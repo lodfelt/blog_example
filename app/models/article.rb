@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :body, :title, :tag_names
+  attr_accessible :body, :title, :tag_names, :user_id, :published
 
   validates_presence_of :title, :body
   validates_uniqueness_of :title
