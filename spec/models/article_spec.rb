@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Article do
   admin_role = Role.create(name: "admin")
   member_role = Role.create(name: "member")
+
   context "published" do
     user = User.create(email: "test_user@example.com", password: "passw0rd")
     unpublished = Article.create(title: "unpublished", body: "this is unpublished", user_id: user.id, published: false)
