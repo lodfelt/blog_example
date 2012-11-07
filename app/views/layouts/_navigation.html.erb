@@ -1,7 +1,10 @@
-<a class="brand" href="#">Title</a>
-<%= current_user.email unless current_user.blank? %>
+<a class="brand" href="#">My little blog</a>
 <ul class="nav">
   <% if user_signed_in?%>
     <li><%= link_to "Log out", destroy_user_session_path %></li>
+  <% else %>
+    <li><%= link_to "Log in", user_session_path %></li>
+    <li class="divider">|</li>
+    <li><%= link_to "Sign up", new_user_registration_path %></li>
   <% end %>
 </ul>

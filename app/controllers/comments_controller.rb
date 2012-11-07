@@ -1,29 +1,5 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource :comment, except: [:create]
-  def index
-    @comments = Comment.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @comments }
-    end
-  end
-
-  def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @comment }
-    end
-  end
-
-  def new
-    @comment = Comment.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @comment }
-    end
-  end
 
   def edit
   end
@@ -44,18 +20,18 @@ class CommentsController < ApplicationController
     end
   end
 
-  def update
-    @article = @comment.article
-    respond_to do |format|
-      if @comment.update_attributes(params[:comment])
-        format.html { redirect_to(@article, :notice => 'Comment was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   @article = @comment.article
+  #   respond_to do |format|
+  #     if @comment.update_attributes(params[:comment])
+  #       format.html { redirect_to(@article, :notice => 'Comment was successfully updated.') }
+  #       format.xml  { head :ok }
+  #     else
+  #       format.html { render :action => "edit" }
+  #       format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   def destroy
     @article = Article.find(params[:article_id])
