@@ -10,7 +10,7 @@ group :development, :test do
   gem 'debugger', '1.2.0'
   gem "rspec-rails", "~> 2.0"
   gem "capybara"
-  gem 'factory_girl'
+  gem "factory_girl_rails"
 end
 group :production do
   gem 'pg'
