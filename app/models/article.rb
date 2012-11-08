@@ -2,7 +2,6 @@ class Article < ActiveRecord::Base
   attr_accessible :body, :title, :tag_names, :user_id, :published
 
   validates_presence_of :title, :body
-  validates_uniqueness_of :title
 
   has_many :comments, dependent: :destroy
   has_many :taggings, dependent: :destroy
@@ -16,6 +15,11 @@ class Article < ActiveRecord::Base
 
   def tag_names
     @tag_names || tags.map(&:name).join(' ')
+  end
+
+  def toggle_published
+    self.published = !(self.published)
+    self.save
   end
 
   private

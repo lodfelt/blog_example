@@ -23,7 +23,7 @@
           <div class="span12">
             <%= render 'layouts/messages' %>
             <aside>
-              <%= render(:partial => 'shared/tags') unless current_user.blank? %>
+              <%= render(:partial => 'shared/tags') %>
             </aside>
             <%= yield %>
           </div>

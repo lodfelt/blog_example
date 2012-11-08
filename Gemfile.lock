@@ -76,6 +76,8 @@ GEM
     eventmachine (1.0.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    factory_girl (4.1.0)
+      activesupport (>= 3.0.0)
     ffi (1.1.5)
     fssm (0.2.9)
     hike (1.2.1)
@@ -187,6 +189,7 @@ DEPENDENCIES
   debugger (= 1.2.0)
   devise (~> 2.1.2)
   execjs
+  factory_girl
   jquery-rails
   pg
   rails (= 3.2.8)

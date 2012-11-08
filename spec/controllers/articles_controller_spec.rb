@@ -10,10 +10,4 @@ describe ArticlesController do
     sign_in user
   end
 
-  it "is possible to create an article through the browser" do
-    post :create, article: { title: "an article", body: "article body", user_id: user.id}
-
-    assigns(:article).title.should == "an article"
-  end
-
 end

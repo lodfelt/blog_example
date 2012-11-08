@@ -1,0 +1,10 @@
+<li class="comment">
+  <div class = "comment-author">
+    <%= comment.name %>
+    <time><%= comment.created_at %></time>
+    <%= link_to 'Delete', admin_article_comment_path(@article, comment), confirm: 'Are you sure?', method: :delete %>
+  </div>
+  <div class="comment-body">
+    <%= simple_format comment.body %>
+  </div>
+</li>

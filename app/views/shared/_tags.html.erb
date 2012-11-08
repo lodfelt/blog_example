@@ -1,8 +1,15 @@
 <h3>Tags</h3>
-<ul id= "tags">
+<ul id= "tags" class="unstyled horizontal-list">
   <% cache('all_tags') do %>
     <% for tag in Tag.find(:all, :order => 'name') %>
-      <li><%= link_to "#{tag.name}", tag_path(tag) %></li>
+      <li>
+        <%= link_to "#{tag.name}", tag_path(tag) %>
+        <% if can? :access, :admin %>
+          <%= button_to "Delete", admin_tag_path(tag),
+                  confirm: "Are you sure you want to delete tag?",
+                  method:  :delete %>
+        <% end %>
+      </li>
     <% end %>
   <% end %>
 </ul>
