@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   attr_accessible :body, :title, :tag_names, :user_id, :published
 
-  validates_presence_of :title, :body
+  validates_presence_of :title
 
   has_many :comments, dependent: :destroy
   has_many :taggings, dependent: :destroy

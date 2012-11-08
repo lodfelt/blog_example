@@ -8,7 +8,7 @@ class Ability
       can :access, :admin
     elsif user.role? :member
       can :read, :all
-      can [:create, :delete], [Article, Comment]
+      can [:create, :edit, :update, :delete], [Article, Comment]
       can [:edit, :update], Comment
       can :publish, Article
       can :delete, Tag
