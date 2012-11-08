@@ -21,6 +21,13 @@ describe Admin::ArticlesController do
       article.reload
       article.title.should == "updated"
     end
+
+    it "is possible to delete an article through the browser" do
+      article
+      expect {
+        delete :destroy, id: article.id
+      }.to change { Article.all.count }.from(1).to(0)
+    end
   end
 
   context "published" do

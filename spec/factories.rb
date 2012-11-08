@@ -14,6 +14,10 @@ FactoryGirl.define do
     factory :admin do
       role_ids [1]
     end
+
+    factory :visitor do
+      role_ids []
+    end
   end
 
   factory :article do

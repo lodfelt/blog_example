@@ -8,10 +8,10 @@ class Ability
       can :access, :admin
     elsif user.role? :member
       can :read, :all
-      can [:create, :edit, :update, :delete], [Article, Comment]
+      can [:create, :edit, :update, :destroy], [Article, Comment]
       can [:edit, :update], Comment
       can :publish, Article
-      can :delete, Tag
+      can :destroy, Tag
     else
       #User is a visitor
       can :read, Article
