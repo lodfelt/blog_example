@@ -18,10 +18,14 @@ en:
       log_out: Log out
       log_in: Log in
       sign_up: Sign up
+    public:
+      title: The blog
   shared:
     tags:
       title: Tags
       confirm_delete: "Are you sure you want to delete the tag?"
+    recent_posts:
+      recent_posts: Recent posts
 
   articles:
     index:
@@ -42,6 +46,9 @@ en:
       edit:
         title: Edit article
       article:
+        publish: Publish
+        unpublish: Unpublish
+        confirm_delete: Are you sure you want to delete article?
 
       comment:
         confirm_delete: "Are you sure you want to delete the comment?"

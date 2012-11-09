@@ -1,6 +1,6 @@
 <% unless Tag.all.empty? %>
   <h3><%= t(:'tags') %></h3>
-  <ul id= "tags" class="unstyled horizontal-list">
+  <ul id= "tags" class="unstyled">
     <% for tag in Tag.find(:all, :order => 'name') %>
       <li>
         <%= link_to "#{tag.name}", tag_path(tag) %>

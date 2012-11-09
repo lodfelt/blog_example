@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : t(:'.title') %></title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <header class="navbar">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render 'layouts/navigation' %>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="content">
+        <div class="row">
+          <div class="span12">
+            <%= render 'layouts/messages' %>
+            <div class="row">
+              <div class="span10">
+                <%= yield %>
+              </div>
+              <div class="span2">
+                <%= render partial: 'shared/recent_posts' %>
+                <%= render partial: 'shared/tags' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

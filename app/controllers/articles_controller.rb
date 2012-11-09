@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   load_and_authorize_resource :article, except: [:index, :create, :new]
   before_filter :authenticate_user!, except: [:index, :show]
+  layout "public"
 
   def index
     @articles = Article.published.all(include: :user)

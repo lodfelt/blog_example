@@ -18,7 +18,7 @@
   <% end %>
 
   <% if with_comments %>
-    <h3>t(:'articles.article.comments')</h3>
+    <h3><%= t(:'articles.article.comments') %></h3>
     <% unless  article.comments.empty? %>
       <ul id="comments" class="unstyled">
         <% article.comments.each do |comment| %>
