@@ -14,11 +14,11 @@
     </div>
   </div>
   <% unless with_comments %>
-    <%= link_to 'Show', article_path(article) %>
+    <%= link_to t(:'common.show'), article_path(article) %>
   <% end %>
 
   <% if with_comments %>
-    <h3>Comments</h3>
+    <h3>t(:'articles.article.comments')</h3>
     <% unless  article.comments.empty? %>
       <ul id="comments" class="unstyled">
         <% article.comments.each do |comment| %>

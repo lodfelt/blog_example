@@ -3,7 +3,9 @@
     <%= comment.name %>
     <time><%= comment.created_at %></time>
     <% if can? :delete, comment  %>
-      <%= link_to 'Delete', article_comment_path(@article, comment), confirm: 'Are you sure?', method: :delete %>
+      <%= link_to t(:'common.delete'), article_comment_path(@article, comment),
+                                       confirm: t(:'.confirm_delete'),
+                                       method: :delete %>
     <% end %>
   </div>
   <div class="comment-body">

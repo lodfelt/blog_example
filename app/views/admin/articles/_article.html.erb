@@ -8,13 +8,13 @@
       <%= simple_format article.body %>
     </div>
   </div>
-  <%= link_to 'Show', admin_article_path(article) %> |
-  <%= link_to 'Edit', edit_admin_article_path(article) %> |
-  <%= link_to 'Destroy', admin_article_path(article), confirm: 'Are you sure?', method: :delete %>
-  <%= button_to(article.published? ? "Unpublish" : "Publish", published_admin_article_path(article),
+  <%= link_to t(:'common.show'), admin_article_path(article) %> |
+  <%= link_to t(:'common.edit'), edit_admin_article_path(article) %> |
+  <%= link_to t(:'common.delete'), admin_article_path(article), confirm: t(:'.confirm_delete'), method: :delete %>
+  <%= button_to(article.published? ? t(:'.unpublish') : t(:'.publish'), published_admin_article_path(article),
           method:  :post) %>
   <% if with_comments %>
-    <h3>Comments</h3>
+    <h3><%= t(:'.unpublish') %></h3>
     <% unless  article.comments.empty? %>
       <ul id="comments" class="unstyled">
         <% article.comments.each do |comment| %>

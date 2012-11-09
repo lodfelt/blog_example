@@ -1,4 +1,4 @@
-<h1>All blog posts</h1>
+<h1><%= t(:'.title') %></h1>
 <% unless @articles.empty? %>
   <ul id="articles" class="unstyled">
     <% @articles.each do |article| %>
@@ -8,4 +8,4 @@
     <% end %>
   </ul>
 <% end %>
-<%= link_to 'New Article', new_admin_article_path if can? :create, Article%>
+<%= link_to(t(:'.create_article'), new_admin_article_path, class: "btn") if can? :create, Article %>

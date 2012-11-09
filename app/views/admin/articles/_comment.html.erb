@@ -2,7 +2,9 @@
   <div class = "comment-author">
     <%= comment.name %>
     <time><%= comment.created_at %></time>
-    <%= link_to 'Delete', admin_article_comment_path(@article, comment), confirm: 'Are you sure?', method: :delete %>
+    <%= link_to t(:'common.delete'), admin_article_comment_path(@article, comment),
+                confirm: t(:'.confirm_delete'),
+                method: :delete %>
   </div>
   <div class="comment-body">
     <%= simple_format comment.body %>

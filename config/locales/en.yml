@@ -2,4 +2,46 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+
+    models:
+
+  common:
+    show: Show
+    delete: Delete
+    back: Back
+  layouts:
+    application:
+      title: The blog
+    navigation:
+      log_out: Log out
+      log_in: Log in
+      sign_up: Sign up
+  shared:
+    tags:
+      title: Tags
+      confirm_delete: "Are you sure you want to delete the tag?"
+
+  articles:
+    index:
+    article:
+      comments: Comments
+    comment:
+      confirm_delete: "Are you sure you want to delete the comment?"
+
+  tags:
+
+  admin:
+    articles:
+      index:
+        title: All blog posts
+        create_article: + Create article
+      new:
+        title: New article
+      edit:
+        title: Edit article
+      article:
+
+      comment:
+        confirm_delete: "Are you sure you want to delete the comment?"
