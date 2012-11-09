@@ -39,6 +39,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem "devise", "~> 2.1.2"
 gem "cancan", "~> 1.6.8"
+gem 'rails-i18n'
 # gem 'simple_form'
 
 # To use Jbuilder templates for JSON
