@@ -28,7 +28,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'compass-rails'
   gem 'bootstrap-sass', '~> 2.1.1.0'
-  gem 'simple_form'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -37,6 +36,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'simple_form'
 gem "devise", "~> 2.1.2"
 gem "cancan", "~> 1.6.8"
 # gem 'simple_form'
