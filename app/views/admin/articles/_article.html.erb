@@ -10,7 +10,7 @@
   </div>
   <%= link_to 'Show', admin_article_path(article) %> |
   <%= link_to 'Edit', edit_admin_article_path(article) %> |
-  <%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %>
+  <%= link_to 'Destroy', admin_article_path(article), confirm: 'Are you sure?', method: :delete %>
   <%= button_to(article.published? ? "Unpublish" : "Publish", published_admin_article_path(article),
           method:  :post) %>
   <% if with_comments %>

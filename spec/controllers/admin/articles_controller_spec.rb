@@ -50,4 +50,12 @@ describe Admin::ArticlesController do
       article.published.should == false
     end
   end
+
+  context "tags" do
+    it "seperates the tags on whitepace when creating an article with multiple tags" do
+      expect {
+        post :create, article: { title: "an article", body: "article body", tag_names: "tag1 tag2", user_id: user.id}
+      }.to change { Tag.all.count }.from(0).to(2)
+    end
+  end
 end
