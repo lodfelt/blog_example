@@ -1,4 +1,9 @@
 <% user = User.first %>
-
-<p><%= user.first_name %> <%= user.last_name %></p>
-<%= t(:'.welcome') %>
+<section class="segment profile">
+  <div>
+    <%= image_tag user.avatar_url(:small).to_s %>
+    <p><%= user.first_name %> <%= user.last_name %></p>
+  </div>
+  <p><%= t(:'.welcome') %></p>
+  <%= link_to t(:'.profile_link'),  user_path(user) %>
+</section>

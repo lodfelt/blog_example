@@ -40,6 +40,10 @@ gem 'simple_form'
 gem "devise", "~> 2.1.2"
 gem "cancan", "~> 1.6.8"
 gem 'rails-i18n'
+
+gem 'carrierwave'
+gem "fog", "~> 1.3.1"
+gem "rmagick", "~> 2.13.1"
 # gem 'simple_form'
 
 # To use Jbuilder templates for JSON

@@ -28,6 +28,7 @@ en:
       recent_posts: Recent posts
     profile:
       welcome: "Welcome to my blog about nothing!"
+      profile_link: "My profile »"
 
   articles:
     index:
@@ -37,6 +38,9 @@ en:
       confirm_delete: "Are you sure you want to delete the comment?"
 
   tags:
+
+  users:
+    profile_updated: "Profile successfully updated"
 
   admin:
     articles:

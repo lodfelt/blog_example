@@ -42,6 +42,24 @@ article {
 // ----- Tags
 
 
+
+// ----- Profile segment
+
+section.profile {
+  @include clearfix;
+  div {
+    img {
+      float: left;
+    }
+    p {
+      margin: 0px 0px 25px 50px;
+    }
+  }
+  a {
+    float: right;
+  }
+}
+
 // ----- Comments on blog-articles
 #comments {
   margin-bottom: 25px;

@@ -1,4 +1,4 @@
-<a class="brand" href="#">My little blog</a>
+<a class="brand" href="<%= root_path %>">My little blog</a>
 <ul class="nav">
   <% if user_signed_in?%>
     <li><%= link_to t(:'.log_out'), destroy_user_session_path %></li>

@@ -3,10 +3,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :title, :body, :first_name, :last_name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :title, :body, :first_name, :last_name, :avatar
   has_and_belongs_to_many :roles
   before_create :assign_role
   has_many :articles
+  mount_uploader :avatar, AvatarUploader
 
   def role?(role)
     return !!self.roles.find_by_name(role.to_s)
