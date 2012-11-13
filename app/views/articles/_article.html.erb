@@ -1,9 +1,16 @@
 <article>
   <div class="row">
-    <div class="<%= detailed ? 'span10' : 'span3' %>">
-      <%= image_tag detailed ? article.image_url(:large).to_s : article.image_url(:thumb).to_s %>
-    </div>
-    <div class="<%= detailed ? 'span10' : 'span7' %>">
+    <% main_image = article.images.main.first %>
+    <% unless main_image.blank? %>
+      <div class="<%= detailed ? 'span10' : 'span3' %>">
+        <%= image_tag detailed ? main_image.image_url(:large).to_s : main_image.image_url(:thumb).to_s %>
+      </div>
+    <% end %>
+    <% if main_image.blank? %>
+      <div class="span10">
+    <% else %>
+      <div class="<%= detailed ? 'span10' : 'span7' %>">
+    <% end %>
       <section>
         <header>
           <h2><%= article.title %></h2>

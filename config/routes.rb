@@ -15,6 +15,7 @@ Blog::Application.routes.draw do
     resources :articles do
       post 'published', on: :member
       resources :comments, only: [:destroy]
+      resources :article_images, only: [:create, :update, :destroy]
     end
     resources :tags, only: [:destroy]
     root to: "articles#index"

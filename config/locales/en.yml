@@ -4,7 +4,8 @@
 en:
   activerecord:
     attributes:
-
+      article_image:
+        image: "Add images"
     models:
 
   common:
@@ -47,6 +48,8 @@ en:
 
   admin:
     articles:
+      updated_image: Updated image
+      image_not_updated: Image was not updated
       index:
         title: All blog posts
         create_article: + Create article
@@ -58,6 +61,9 @@ en:
         publish: Publish
         unpublish: Unpublish
         confirm_delete: Are you sure you want to delete article?
+      form:
+        add_image: Add image
+        main: Main image
 
       comment:
         confirm_delete: "Are you sure you want to delete the comment?"
