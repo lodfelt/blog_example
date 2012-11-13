@@ -11,6 +11,7 @@ en:
     show: Show
     delete: Delete
     back: Back
+    more: "More»"
   layouts:
     application:
       title: The blog
@@ -34,6 +35,8 @@ en:
     index:
     article:
       comments: Comments
+      tags: "Tags:"
+      by: "By:"
     comment:
       confirm_delete: "Are you sure you want to delete the comment?"
 

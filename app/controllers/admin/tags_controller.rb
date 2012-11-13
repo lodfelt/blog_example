@@ -6,7 +6,7 @@ class Admin::TagsController < ApplicationController
     authorize! :delete, @tag
     @tag.destroy
     respond_to do |format|
-      format.html { redirect_to admin_articles_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

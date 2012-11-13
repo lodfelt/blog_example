@@ -1,23 +1,34 @@
 <article>
-  <div id="article-content">
-    <div class="title">
-      <h2><%= article.title %></h2>
-      <p>By <%= article.user.email %> on <%= article.created_at.strftime("%B %d %Y") %></p>
+  <div class="row">
+    <div class="<%= detailed ? 'span10' : 'span3' %>">
+      <%= image_tag detailed ? article.image_url(:large).to_s : article.image_url(:thumb).to_s %>
     </div>
-    <div class="body">
-      <p>Tags:
-        <% article.tags.each do |tag|%>
-          <%= link_to tag.name, tag_path(tag) %>
-        <% end %>
-      </p>
-      <%= simple_format article.body %>
+    <div class="<%= detailed ? 'span10' : 'span7' %>">
+      <section>
+        <header>
+          <h2><%= article.title %></h2>
+          <p>
+            <%= t(:'.tags') %>
+            <% article.tags.each do |tag|%>
+              <%= link_to tag.name, tag_path(tag) %>
+            <% end %>
+          </p>
+        </header>
+        <div class="body">
+          <p>
+            <%= detailed ? article.body : truncate(article.body, length: 200 ) %>
+            <% unless detailed %>
+              <%= link_to t(:'common.more'), article_path(article) %>
+            <% end %>
+          </p>
+        </div>
+        <footer>
+          <p><%= t(:'.by') %> <%= article.user.email %> on <%= article.created_at.strftime("%B %d %Y") %></p>
+        </footer>
+      </section>
     </div>
   </div>
-  <% unless with_comments %>
-    <%= link_to t(:'common.show'), article_path(article) %>
-  <% end %>
-
-  <% if with_comments %>
+  <% if detailed %>
     <h3><%= t(:'articles.article.comments') %></h3>
     <% unless  article.comments.empty? %>
       <ul id="comments" class="unstyled">

@@ -1,6 +1,6 @@
 <li class="comment">
   <div class = "comment-author">
-    <%= comment.name %>
+    <%= comment.name %> (<%= mail_to comment.email %>)
     <time><%= comment.created_at %></time>
   </div>
   <div class="comment-body">

@@ -23,24 +23,43 @@
 // ----- Styling for articles
 
 article {
+  margin-bottom: 20px;
+  > img {
+  }
+
+  section  {
+    min-height: 180px;
+    header h2 {
+      margin: 0px;
+    }
+  }
   .body {
     margin-bottom:1.5em;
   }
-  #article-content{
-    h1 {
-      font-size: 3em;
-      line-height: 1;
-      margin-bottom: 10px;
-      padding-left: 0;
-    }
-    h2 {
-      font-size: 2em;
+  h1 {
+    font-size: 3em;
+    line-height: 1;
+    margin-bottom: 10px;
+    padding-left: 0;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  footer {
+    p {
+      margin: 0px;
     }
   }
 }
 
 // ----- Tags
 
+#tags {
+  > li form {
+    display: inline-block;
+    margin: 0px;
+  }
+}
 
 
 // ----- Profile segment
@@ -55,19 +74,16 @@ section.profile {
       margin: 0px 0px 25px 50px;
     }
   }
-  a {
-    float: right;
-  }
 }
 
 // ----- Comments on blog-articles
 #comments {
+  @include border-radius(4px);
   margin-bottom: 25px;
   border: 1px solid #666;
   background: #F1F1F1;
 
   .comment {
-    @include border-radius(2px);
     padding: 10px;
     .comment-author {
       font-weight:bold;
@@ -80,6 +96,16 @@ section.profile {
 
     .comment-body {
     }
+  }
+}
+
+#new_comment {
+  input[type='text'], input[type='email'], textarea {
+    width: 300px;
+  }
+
+  textarea {
+    height: 6em;
   }
 }
 
