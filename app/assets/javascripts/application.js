@@ -23,3 +23,4 @@
 // ----- Partial imports
 
 //= require blog/public
+//= require blog/admin

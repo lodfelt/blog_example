@@ -1,3 +1,7 @@
 <li class="<%= 'main' if image.article_main %>"><%= image_tag image.image_url(:small)%>
-  <%= button_to(t(:'admin.articles.form.main'), admin_article_article_image_path(@article, image), method: :put)%>
+  <%= simple_form_for([:admin, image.article, image]) do |f| %>
+    <%= f.input :description %>
+    <%= f.input :article_main %>
+    <%= f.button :submit %>
+  <% end %>
 </li>

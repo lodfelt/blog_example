@@ -13,6 +13,7 @@ en:
     delete: Delete
     back: Back
     more: "More»"
+    edit: Edit
   layouts:
     application:
       title: The blog

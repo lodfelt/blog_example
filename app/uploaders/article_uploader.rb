@@ -16,6 +16,10 @@ class ArticleUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [640, 360]
   end
 
+  version :inline do
+    process resize_to_fill: [410, 270]
+  end
+
   version :thumb do
     process resize_to_fill: [270, 180]
   end

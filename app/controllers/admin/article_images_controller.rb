@@ -11,8 +11,15 @@ class Admin::ArticleImagesController < ApplicationController
   end
 
   def update
-    @article_image.update_main_article
-    redirect_to edit_admin_article_path(@article), notice: t(:'admin.articles.updated_image')
+    respond_to do |format|
+      if @article_image.update_attributes(params[:article_image])
+        format.html { render partial: "admin/article_images/article_image", locals: {image: @article_image} }
+        format.json { render json: @article, status: :ok, location: @article}
+      else
+        format.html { redirect_to admin_article_path(@article) }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy

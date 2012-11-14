@@ -4,10 +4,10 @@
     <% for tag in Tag.find(:all, order: 'name') %>
       <li>
         <%= link_to tag.name, tag_path(tag) %>
-        <% if can? :access, :admin %>
+        <% if show_delete  %>
           <%= button_to t(:'common.delete'), admin_tag_path(tag),
               confirm: t(:'shared.tags.confirm_delete'),
-              method:  :delete %>
+              method:  :delete if can? :access, :admin %>
         <% end %>
       </li>
     <% end %>

@@ -34,6 +34,8 @@ aside {
     font-weight: bold;
     font-size: 14px;
     text-transform: uppercase;
+    margin: 0 0 10px 0;
+    line-height: 18px;
   }
 }
 
@@ -69,6 +71,9 @@ article {
   }
   .body {
     margin-bottom:1.5em;
+  }
+  .images {
+    text-align: center;
   }
   h1 {
     font-size: 3em;

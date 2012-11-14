@@ -28,7 +28,21 @@
               <%= link_to t(:'common.more'), article_path(article) %>
             <% end %>
           </p>
-        </div>
+        </section>
+        <% if detailed %>
+          <div class="images">
+            <% article.images.inline.each do |image| %>
+              <figure>
+                <%= image_tag image.image_url(:inline) %>
+                  <% if image.description.present? %>
+                    <figcaption>
+                      <%= image.description %>
+                    </figcaption>
+                  <% end %>
+              </figure>
+            <% end %>
+          </div>
+        <% end %>
         <footer>
           <p><%= t(:'.by') %> <%= article.user.email %> on <%= article.created_at.strftime("%B %d %Y") %></p>
         </footer>
