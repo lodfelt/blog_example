@@ -21,7 +21,7 @@ class ArticleUploader < CarrierWave::Uploader::Base
   end
 
   version :small do
-    process resize_to_fill: [64, 36]
+    process resize_to_fill: [68, 45]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

@@ -1,9 +1,9 @@
 <% unless Tag.all.empty? %>
-  <h3><%= t(:'tags') %></h3>
+  <h3><%= t(:'.title') %></h3>
   <ul id= "tags" class="unstyled">
-    <% for tag in Tag.find(:all, :order => 'name') %>
+    <% for tag in Tag.find(:all, order: 'name') %>
       <li>
-        <%= link_to "#{tag.name}", tag_path(tag) %>
+        <%= link_to tag.name, tag_path(tag) %>
         <% if can? :access, :admin %>
           <%= button_to t(:'common.delete'), admin_tag_path(tag),
               confirm: t(:'shared.tags.confirm_delete'),

@@ -5,6 +5,7 @@ capybara-*.html
 .rspec
 /.bundle
 /vendor/bundle
+/public/uploads
 /config/heroku_env.rb
 /log/*
 /tmp/*

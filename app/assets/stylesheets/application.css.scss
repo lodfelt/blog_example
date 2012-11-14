@@ -21,6 +21,39 @@
   }
 }
 
+// ---- right aside
+
+aside {
+  hr {
+    margin: 10px 0px;
+    border-bottom-color: #3697B3;
+    border-top-color: #3697B3;
+  }
+  h3 {
+    color: #888888;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+}
+
+#recent-posts {
+  li {
+    img {
+      float: left;
+    }
+    font-size: 12px;
+    h4 {
+      margin: 0 0 0 78px;
+      font-size: 12px;
+      height: 45px;
+      a {
+        color: black;
+      }
+    }
+  }
+}
+
 // ----- Styling for articles
 
 article {

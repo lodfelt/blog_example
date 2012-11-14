@@ -23,14 +23,16 @@
           <div class="span12">
             <%= render 'layouts/messages' %>
             <div class="row">
-              <div class="span10">
+              <div class="span9">
                 <%= yield %>
               </div>
-              <div class="span2">
+              <aside class="span3">
                 <%= render partial: 'shared/profile' %>
+                <hr>
                 <%= render partial: 'shared/recent_posts' %>
+                <hr>
                 <%= render partial: 'shared/tags' %>
-              </div>
+              </aside>
             </div>
           </div>
         </div>
