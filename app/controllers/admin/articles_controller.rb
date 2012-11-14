@@ -49,7 +49,7 @@ class Admin::ArticlesController < ApplicationController
     respond_to do |format|
       if @article.update_attributes(params[:article])
         format.html { redirect_to admin_articles_path, notice: 'Article was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render json: @article, status: :ok, location: @article}
       else
         format.html { render action: "edit" }
         format.json { render json: @article.errors, status: :unprocessable_entity }
