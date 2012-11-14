@@ -1,0 +1,3 @@
+<li class="<%= 'main' if image.article_main %>"><%= image_tag image.image_url(:small)%>
+  <%= button_to(t(:'admin.articles.form.main'), admin_article_article_image_path(@article, image), method: :put)%>
+</li>

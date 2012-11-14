@@ -1,0 +1,6 @@
+<% if @article_image.new_record? %>
+  alert("Failed to upload image: <%= j @article_image.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+  $("#article-images").append("<%= j render partial: 'admin/article_images/article_image', locals: {image: @article_image}%>");
+<% end %>
+

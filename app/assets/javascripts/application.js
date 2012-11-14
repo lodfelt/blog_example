@@ -10,8 +10,16 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+
+// ----- Plugin imports
+
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
 
+// ----- Partial imports
+
+//= require blog/public

@@ -5,18 +5,13 @@
   <%= f.input :published %>
   <%= f.button :submit %>
 <% end %>
-<% unless @article.images.empty? %>
-  <ul class="article-images horizontal-list">
-    <% @article.images.each do |image| %>
-      <li class="<%= 'main' if image.article_main %>"><%= image_tag image.image_url(:small)%>
-        <%= button_to(t(:'admin.articles.form.main'), admin_article_article_image_path(@article, image), method: :put)%>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<ul id="article-images" class="article-images horizontal-list">
+  <% @article.images.each do |image| %>
+    <%= render partial: "admin/article_images/article_image", locals: {image: image} %>
+  <% end %>
+</ul>
 <% if @article.persisted? %>
   <%= simple_form_for([:admin, @article, @article.images.build]) do |f| %>
-    <%= f.input :image, as: 'file' %>
-    <%= f.button :submit, t(:'admin.articles.form.add_image') %>
+    <%= f.file_field :image, multiple: true, name: "article_image[image]" %>
   <% end %>
 <% end %>
