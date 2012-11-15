@@ -1,3 +1,10 @@
+
+def test_file_path(file_name)
+  Rails.root.join('spec', 'support', 'data', file_name)
+end
+
+include ActionDispatch::TestProcess
+
 FactoryGirl.define do
 
   factory :user do
@@ -30,6 +37,13 @@ FactoryGirl.define do
 
     factory :published do
       published true
+    end
+  end
+
+  factory :article_image do
+    image { fixture_file_upload(test_file_path('rails.png'), 'image/png') }
+    sequence :description do |n|
+      "description_#{n}"
     end
   end
 
