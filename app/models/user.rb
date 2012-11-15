@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :title, :body, :first_name, :last_name, :avatar
   has_and_belongs_to_many :roles
   before_create :assign_role
+  after_create :associate_with_profile
   has_many :articles
+  has_one :profile
   mount_uploader :avatar, AvatarUploader
 
   def role?(role)
@@ -17,6 +19,10 @@ class User < ActiveRecord::Base
     name = "#{first_name} #{last_name}".strip
     return "" if name.blank?
     name
+  end
+
+  def associate_with_profile
+    self.profile = Profile.new unless self.profile
   end
 
   private

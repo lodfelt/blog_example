@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   load_and_authorize_resource :user
 
   def show
+    @profile = @user.profile
+    @user_links = @profile.links.split(" ")
+    @recent_posts = @user.articles(limit: 3)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }

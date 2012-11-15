@@ -1,9 +1,8 @@
 <% user = User.first %>
 <section class="segment profile">
   <div>
-    <%= image_tag user.avatar_url(:small).to_s %>
+    <%= image_tag user.avatar_url(:small).to_s, class: "img-polaroid" %>
     <p><%= user.first_name %> <%= user.last_name %></p>
   </div>
-  <p><%= t(:'.welcome') %></p>
   <%= link_to t(:'.profile_link'),  user_path(user) %>
 </section>

@@ -32,7 +32,7 @@ en:
       recent_posts: Recent posts
     profile:
       welcome: "Welcome to my blog about nothing!"
-      profile_link: "My profile »"
+      profile_link: "Profile »"
 
   articles:
     index:
@@ -49,6 +49,9 @@ en:
 
   users:
     profile_updated: "Profile successfully updated"
+    show:
+      about: "About: "
+      find_me_here: "Find me here: "
 
   admin:
     articles:

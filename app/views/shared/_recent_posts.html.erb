@@ -1,7 +1,7 @@
 <h3><%= t(:'.recent_posts') %></h3>
 <% unless Article.all.empty? %>
-  <ol id="recent-posts" class="unstyled">
-    <% Article.all(limit: 5).each do |article| %>
+  <ol class="recent-posts unstyled">
+    <% Article.all(limit: 3).each do |article| %>
       <li>
         <%= image_tag article.images.main.first.image_url(:small) unless article.images.main.first.blank? %>
         <h4><%= link_to article.title, article_path(article) %></h4>

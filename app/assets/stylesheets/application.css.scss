@@ -37,16 +37,23 @@ aside {
   }
 }
 
-#recent-posts {
+.recent-posts {
   li {
+    @include clearfix;
     img {
       float: left;
     }
     font-size: 12px;
+    h3 {
+      margin: 0 0 0 280px;
+      font-size: 1.5em;
+    }
     h4 {
       margin: 0 0 0 78px;
-      font-size: 12px;
+      font-size: 1em;
       height: 45px;
+    }
+    h3, h4 {
       a {
         color: black;
       }
@@ -79,6 +86,9 @@ article {
   h2 {
     font-size: 2em;
   }
+  h3 {
+    font-size: 1.5em;
+  }
   footer {
     p {
       margin: 0px;
@@ -106,7 +116,18 @@ figure {
 }
 
 
-// ----- Profile segment
+// ----- Profile
+
+section#profile-top {
+  img {
+    float: left;
+    margin-right: 10px;
+  }
+}
+
+form.edit_user {
+  display: none;
+}
 
 section.profile {
   @include clearfix;
@@ -115,7 +136,7 @@ section.profile {
       float: left;
     }
     p {
-      margin: 0px 0px 25px 50px;
+      margin: 0px 0px 35px 60px;
     }
   }
 }
@@ -174,6 +195,15 @@ time {
   font-weight: normal;
   font-size: 12px;
   color: #999;
+}
+
+span.important {
+  font-weight: bold;
+}
+
+p {
+  font-size: 14px;
+  line-height: 18px;
 }
 
 // ------ must be placed last
