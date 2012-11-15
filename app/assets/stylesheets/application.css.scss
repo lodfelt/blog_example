@@ -85,6 +85,7 @@ article {
   }
   h2 {
     font-size: 2em;
+    margin-top: 0px;
   }
   h3 {
     font-size: 1.5em;
@@ -121,7 +122,9 @@ figure {
 section#profile-top {
   img {
     float: left;
-    margin-right: 10px;
+  }
+  .content {
+    margin-left: 220px;
   }
 }
 
@@ -204,6 +207,11 @@ span.important {
 p {
   font-size: 14px;
   line-height: 18px;
+}
+
+#main-back {
+  display: block;
+  margin-bottom: 20px;
 }
 
 // ------ must be placed last

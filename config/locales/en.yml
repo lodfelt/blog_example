@@ -15,6 +15,7 @@ en:
     more: "More»"
     edit: Edit
     update: Update
+    all_articles: Back to all articles
   layouts:
     application:
       title: The blog
@@ -46,12 +47,15 @@ en:
       confirm_delete: "Are you sure you want to delete the comment?"
 
   tags:
+    show:
+      articles_with_tag: "Articles with tag "
 
   users:
     profile_updated: "Profile successfully updated"
     show:
       about: "About: "
       find_me_here: "Find me here: "
+      email: "Email: "
 
   admin:
     articles:

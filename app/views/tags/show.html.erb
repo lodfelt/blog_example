@@ -1,12 +1,11 @@
-<%= link_to 'Back to all articles', articles_path %>
-
-<h2>Articles with tag <%= @tag.name %></h2>
+<%= link_to t(:'common.all_articles'), articles_path, id: "main-back" %>
+<h2><%= t(:'.articles_with_tag') %> <%= @tag.name %></h2>
 
 <% unless @articles.empty? %>
   <ul id="articles" class="unstyled">
     <% @articles.each do |article| %>
       <li>
-        <%= render partial: "articles/article", locals: { article: article, with_comments: true } %>
+        <%= render partial: "articles/article", locals: { article: article, detailed: true } %>
       </li>
     <% end %>
   </ul>

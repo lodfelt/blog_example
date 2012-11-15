@@ -20,6 +20,7 @@ class Ability
       can :read, Comment
       can :read, Tag
       can :read, ArticleImage
+      can :read, User
       can :create, Comment
     end
   end

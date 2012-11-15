@@ -2,13 +2,19 @@
   <div class="span9">
     <section id="profile-top">
       <%= image_tag @user.avatar_url(:thumb), class: "img-polaroid" %>
-      <h1><%= @user.name %></h1>
-      <span class="important"><%= t(:'.about') %></span>
-      <%= simple_format @profile.about %>
-      <span class="important"><%= t(:'.find_me_here') %></span>
-      <ul class="unstyled horizontal-list">
-        <%= format_links(@user_links) %>
-      </ul>
+      <div class="content">
+        <h1><%= @user.name %></h1>
+        <div>
+          <span class="important"><%= t(:'.email') %></span>
+          <span><%= mail_to @user.email, @user.email %></span>
+        </div>
+        <span class="important"><%= t(:'.about') %></span>
+        <%= simple_format @profile.about %>
+        <span class="important"><%= t(:'.find_me_here') %></span>
+        <ul class="unstyled horizontal-list">
+          <%= format_links(@user_links) %>
+        </ul>
+      </div>
     </section>
   </div>
 </div>
