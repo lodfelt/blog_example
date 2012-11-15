@@ -1,10 +1,8 @@
-<a class="brand" href="<%= root_path %>">My little blog</a>
+<a class="brand" href="<%= root_path %>">The blog!</a>
 <ul class="nav">
   <% if user_signed_in?%>
     <li><%= link_to t(:'.log_out'), destroy_user_session_path %></li>
   <% else %>
     <li><%= link_to t(:'.log_in'), user_session_path %></li>
-    <!-- <li class="divider">|</li> -->
-    <!-- <li><%#= link_to t(:'.sign_up'), new_user_registration_path %></li> -->
   <% end %>
 </ul>
