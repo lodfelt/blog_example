@@ -13,6 +13,12 @@ class User < ActiveRecord::Base
     return !!self.roles.find_by_name(role.to_s)
   end
 
+  def name
+    name = "#{first_name} #{last_name}".strip
+    return "" if name.blank?
+    name
+  end
+
   private
   def assign_role
     if self.role_ids.empty?

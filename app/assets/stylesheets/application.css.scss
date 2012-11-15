@@ -26,8 +26,6 @@
 aside {
   hr {
     margin: 10px 0px;
-    border-bottom-color: #3697B3;
-    border-top-color: #3697B3;
   }
   h3 {
     color: #888888;
@@ -59,8 +57,8 @@ aside {
 // ----- Styling for articles
 
 article {
-  margin-bottom: 20px;
-  > img {
+  .large-image {
+    margin-bottom: 20px;
   }
 
   section  {
@@ -71,9 +69,6 @@ article {
   }
   .body {
     margin-bottom:1.5em;
-  }
-  .images {
-    text-align: center;
   }
   h1 {
     font-size: 3em;
@@ -88,6 +83,16 @@ article {
     p {
       margin: 0px;
     }
+  }
+  &.detailed {
+    text-align: center;
+  }
+}
+
+figure {
+  figcaption {
+    font-size: 12px;
+    font-style: italic;
   }
 }
 
@@ -116,8 +121,18 @@ section.profile {
 }
 
 // ----- Comments on blog-articles
+
+#comment-area {
+  margin-bottom: 80px;
+  .comment-on-article {
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
 #comments {
   @include border-radius(4px);
+  width: 500px;
   margin-bottom: 25px;
   border: 1px solid #666;
   background: #F1F1F1;
@@ -126,11 +141,6 @@ section.profile {
     padding: 10px;
     .comment-author {
       font-weight:bold;
-      time {
-        font-weight: normal;
-        font-size: 10px;
-        color: #999;
-      }
     }
 
     .comment-body {
@@ -139,6 +149,7 @@ section.profile {
 }
 
 #new_comment {
+  display: none;
   input[type='text'], input[type='email'], textarea {
     width: 300px;
   }
@@ -152,6 +163,17 @@ section.profile {
 
 .horizontal-list {
   @include horizontal-list
+}
+
+hr {
+  margin: 20px 0px;
+  border-bottom-color: #3697B3;
+  border-top-color: #3697B3;
+}
+time {
+  font-weight: normal;
+  font-size: 12px;
+  color: #999;
 }
 
 // ------ must be placed last

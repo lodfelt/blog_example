@@ -5,4 +5,15 @@
       margin: 0px;
     }
   }
+  form {
+    input[type='text'], textarea {
+      width: 200px;
+    }
+  }
+}
+
+form {
+  input[type='text'], textarea {
+    width: 400px;
+  }
 }

@@ -27,4 +27,19 @@ $(document).ready(function() {
     return false;
   });
 
+  $("#article-images").on('click', '.btn-danger', function(e){
+    var $form = $(this).closest('form');
+    var data = {'_method':'delete', 'authenticity_token':$form.find("input[name='authenticity_token']").val()};
+
+    $.post(
+      $form.attr('action'),
+      data,
+      function (data) {
+        $form.closest('li').fadeOut();
+      }
+    );
+
+    return false;
+  });
+
 });

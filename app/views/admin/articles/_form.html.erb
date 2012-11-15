@@ -5,6 +5,7 @@
   <%= f.input :published %>
   <%= f.button :submit %>
 <% end %>
+<h2><%= t(:'.images') %></h2>
 <ul id="article-images" class="article-images horizontal-list">
   <% @article.images.each do |image| %>
     <%= render partial: "admin/article_images/article_image", locals: {image: image} %>

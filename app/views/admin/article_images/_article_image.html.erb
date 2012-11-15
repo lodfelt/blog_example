@@ -2,6 +2,7 @@
   <%= simple_form_for([:admin, image.article, image]) do |f| %>
     <%= f.input :description %>
     <%= f.input :article_main %>
-    <%= f.button :submit %>
+    <%= f.button :submit, t(:'common.update') %>
+    <button type="button" class="btn btn-danger"><%= t(:'common.delete') %></button>
   <% end %>
 </li>

@@ -1,8 +1,8 @@
-<article>
+<article <% if detailed %>class="detailed"<% end%>>
   <div class="row">
     <% main_image = article.images.main.first %>
     <% unless main_image.blank? %>
-      <div class="<%= detailed ? 'span9' : 'span3' %>">
+      <div class="<%= detailed ? 'span9 large-image' : 'span3' %>">
         <%= image_tag detailed ? main_image.image_url(:large).to_s : main_image.image_url(:thumb).to_s %>
       </div>
     <% end %>
@@ -33,7 +33,7 @@
           <div class="images">
             <% article.images.inline.each do |image| %>
               <figure>
-                <%= image_tag image.image_url(:inline) %>
+                <%= image_tag image.image_url(:inline), class: "img-polaroid" %>
                   <% if image.description.present? %>
                     <figcaption>
                       <%= image.description %>
@@ -44,12 +44,17 @@
           </div>
         <% end %>
         <footer>
-          <p><%= t(:'.by') %> <%= article.user.email %> on <%= article.created_at.strftime("%B %d %Y") %></p>
+          <p><%= t(:'articles.article.by') %> <%= article.user.name %>(<%= mail_to article.user.email %>)
+            <%= t(:'articles.article.on_date') %> <time><%= l article.created_at, format: :blog_short_time %></time>
+          </p>
         </footer>
       </section>
     </div>
   </div>
-  <% if detailed %>
+</article>
+<% if detailed %>
+  <hr>
+  <section id="comment-area">
     <h3><%= t(:'articles.article.comments') %></h3>
     <% unless  article.comments.empty? %>
       <ul id="comments" class="unstyled">
@@ -58,11 +63,12 @@
         <% end %>
       </ul>
     <% end %>
+    <a href="" class="comment-on-article"><%= t(:'.comment') %></a>
     <%= simple_form_for([article, article.comments.build]) do |f| %>
       <%= f.input :name %>
       <%= f.input :email%>
       <%= f.input :body, as: 'text'%>
       <%= f.button :submit %>
     <% end %>
-  <% end %>
-</article>
+  </section>
+<% end %>

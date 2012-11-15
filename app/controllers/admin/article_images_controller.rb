@@ -25,7 +25,7 @@ class Admin::ArticleImagesController < ApplicationController
   def destroy
     @article_image.destroy
     respond_to do |format|
-      format.html { redirect_to :back }
+      format.html { head :ok }
       format.json { head :no_content }
     end
   end

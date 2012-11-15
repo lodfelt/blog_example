@@ -4,6 +4,9 @@
       <li>
         <%= render partial: "article", locals: { article: article, detailed: false } %>
       </li>
+      <% unless article == @articles.last %>
+        <hr>
+      <% end %>
     <% end %>
   </ul>
 <% end %>
