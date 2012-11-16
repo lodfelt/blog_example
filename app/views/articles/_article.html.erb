@@ -23,7 +23,7 @@
         </header>
         <div class="body">
           <p>
-            <%= detailed ? article.body : truncate(article.body, length: 200 ) %>
+            <%= detailed ? (simple_format article.body) : (truncate(article.body, length: 200 )) %>
             <% unless detailed %>
               <%= link_to t(:'common.more'), article_path(article) %>
             <% end %>
