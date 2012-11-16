@@ -46,6 +46,10 @@ en:
     comment:
       confirm_delete: "Are you sure you want to delete the comment?"
 
+  comments:
+    created_notice: "Comment was created!"
+    not_created: "Comment was not created"
+
   tags:
     show:
       articles_with_tag: "Articles with tag "

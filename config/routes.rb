@@ -7,14 +7,13 @@ Blog::Application.routes.draw do
   resources :users, only: [:show, :update]
 
   resources :articles, only: [:index, :show] do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
   resources :tags, only: [:show]
 
   namespace :admin do
     resources :articles do
       post 'published', on: :member
-      resources :comments, only: [:destroy]
       resources :article_images, only: [:create, :update, :destroy]
     end
     resources :tags, only: [:destroy]

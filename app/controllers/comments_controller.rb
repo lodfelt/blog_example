@@ -1,27 +1,22 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource :article
   load_and_authorize_resource :comment, except: [:create]
 
-  def edit
-  end
 
   def create
-    @article = Article.find(params[:article_id])
     @comment = @article.comments.build(params[:comment])
-    authorize! :create, @comment
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(@article, :notice => 'Comment was successfully created.') }
-        format.json  { render json: @article, :status => :created, location: @article }
+        format.html { redirect_to(@article, notice: t(:'comments.created_notice')) }
+        format.json  { render json: @article, status: :created, location: @article }
       else
-        format.html { redirect_to(@article, :notice =>
-        'Comment could not be saved. Please fill in all fields')}
+        format.html { redirect_to(@article, notice: t(:'.comments.not_created')) }
         format.json  { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @article = Article.find(params[:article_id])
     @comment.destroy
 
     respond_to do |format|

@@ -47,4 +47,16 @@ FactoryGirl.define do
     end
   end
 
+  factory :comment do
+    sequence :name do |n|
+      "name_#{n}"
+    end
+    sequence :email do |n|
+      "test_#{n}@example.com"
+    end
+    sequence :body do |n|
+      "body_#{n}"
+    end
+  end
+
 end
