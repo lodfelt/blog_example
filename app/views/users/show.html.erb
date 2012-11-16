@@ -33,10 +33,11 @@
     </ul>
   </div>
 </div>
-
-<%= simple_form_for(@user) do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name%>
-  <%= f.input :avatar, as: 'file' %>
-  <%= f.button :submit %>
+<% if can? :update, @user %>
+  <%= simple_form_for(@user) do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name%>
+    <%= f.input :avatar, as: 'file' %>
+    <%= f.button :submit %>
+  <% end %>
 <% end %>
