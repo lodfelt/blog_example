@@ -45,13 +45,19 @@ aside {
     }
     font-size: 12px;
     h3 {
-      margin: 0 0 0 280px;
+      margin: 0px;
       font-size: 1.5em;
+      &.with-image {
+        margin-left: 280px;
+      }
     }
     h4 {
-      margin: 0 0 0 78px;
+      margin: 0px;
       font-size: 1em;
       height: 45px;
+      &.with-image {
+        margin-left: 78px;
+      }
     }
     h3, h4 {
       a {
@@ -126,10 +132,6 @@ section#profile-top {
   .content {
     margin-left: 220px;
   }
-}
-
-form.edit_user {
-  //display: none;
 }
 
 section.profile {

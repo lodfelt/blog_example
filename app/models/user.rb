@@ -2,13 +2,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :title, :body, :first_name, :last_name, :avatar
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :title, :body, :first_name, :last_name, :avatar, :profile_attributes
   has_and_belongs_to_many :roles
   before_create :assign_role
   after_create :associate_with_profile
   has_many :articles
   has_one :profile
   mount_uploader :avatar, AvatarUploader
+  accepts_nested_attributes_for :profile
 
   def role?(role)
     return !!self.roles.find_by_name(role.to_s)

@@ -16,6 +16,7 @@ en:
     edit: Edit
     update: Update
     all_articles: Back to all articles
+    close: Close
   layouts:
     application:
       title: The blog
@@ -60,6 +61,7 @@ en:
       about: "About: "
       find_me_here: "Find me here: "
       email: "Email: "
+      edit_profile: Edit profile
 
   admin:
     articles:
