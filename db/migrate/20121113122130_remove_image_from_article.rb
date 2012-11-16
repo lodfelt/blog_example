@@ -1,5 +1,9 @@
 class RemoveImageFromArticle < ActiveRecord::Migration
-  def change
-    remove_column :articles, :image, :string
+  def up
+    remove_column :articles, :image
+  end
+
+  def down
+    add_column :articles, :image, :string
   end
 end
