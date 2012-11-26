@@ -1,4 +1,6 @@
 <h1><%= t(:'.title') %></h1>
+<%= link_to(t(:'.add_article'), new_admin_article_path, id: "create-article", class: "btn", remote: true) if can? :create, Article %>
+
 <% unless @articles.empty? %>
   <ul id="articles" class="unstyled">
     <% @articles.each do |article| %>
@@ -8,4 +10,3 @@
     <% end %>
   </ul>
 <% end %>
-<%= link_to(t(:'.create_article'), new_admin_article_path, class: "btn") if can? :create, Article %>

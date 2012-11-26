@@ -12,6 +12,17 @@
   }
 }
 
+#new_article {
+  width: 640px;
+  textarea {
+    height: 200px;
+  }
+}
+
+#articles {
+  margin-top: 40px;
+}
+
 form {
   input[type='text'], textarea {
     width: 400px;

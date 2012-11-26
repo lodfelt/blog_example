@@ -1,25 +1,10 @@
-<article>
+<article id="article_<%=article.id%>">
   <div id="article-content">
     <div class="title">
-      <h2><%= article.title %></h2>
-      <p>By <%= article.user.email %> on <%= article.created_at.strftime("%B %d %Y") %></p>
-    </div>
-    <div class="body">
-      <%= simple_format article.body %>
+      <h4><%= article.title %></h4>
     </div>
   </div>
   <%= link_to t(:'common.edit'), edit_admin_article_path(article) %> |
-  <%= link_to t(:'common.delete'), admin_article_path(article), confirm: t(:'.confirm_delete'), method: :delete %>
-  <%= button_to(article.published? ? t(:'.unpublish') : t(:'.publish'), published_admin_article_path(article),
-          method:  :post) %>
-  <% if with_comments %>
-    <h3><%= t(:'.unpublish') %></h3>
-    <% unless  article.comments.empty? %>
-      <ul id="comments" class="unstyled">
-        <% article.comments.each do |comment| %>
-          <%= render partial: "comment", locals: { comment: comment }%>
-        <% end %>
-      </ul>
-    <% end %>
-  <% end %>
+  <%= link_to t(:'common.delete'), admin_article_path(article), confirm: t(:'.confirm_delete'), remote: true, method: :delete %>
+  <%= button_to(article.published? ? t(:'.unpublish') : t(:'.publish'), published_admin_article_path(article), remote: true, method: :post) %>
 </article>

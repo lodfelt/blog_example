@@ -1,4 +1,5 @@
-<%= simple_form_for([:admin, @article]) do |f| %>
+<% @article.persisted? ? remote = {remote: false} : remote = {remote: true} %>
+<%= simple_form_for([:admin, @article], remote ) do |f| %>
   <%= f.input :title %>
   <%= f.input :body, as: 'text' %>
   <%= f.input :tag_names %>

@@ -72,7 +72,7 @@ en:
       image_not_updated: Image was not updated
       index:
         title: All blog posts
-        create_article: + Create article
+        add_article: + Add article
       new:
         title: New article
       edit:

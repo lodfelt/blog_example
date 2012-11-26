@@ -1,0 +1,3 @@
+$('#new_article').remove();
+$('#create-article').show();
+$('#articles').prepend('<%= j render partial: "admin/articles/article", locals: {article: @article} %>');

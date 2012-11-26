@@ -1,0 +1,7 @@
+
+<% if @article.published? %>
+  var button_text = "Unpublish";
+<% else %>
+  var button_text = "Publish";
+<% end %>
+$("#article_<%=@article.id%>").children('.button_to').find("input[type='submit']").val(button_text);

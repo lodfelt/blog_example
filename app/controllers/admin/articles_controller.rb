@@ -14,7 +14,7 @@ class Admin::ArticlesController < ApplicationController
   def show
     authorize! :access, :admin
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @article }
     end
   end
@@ -22,7 +22,8 @@ class Admin::ArticlesController < ApplicationController
   def new
     @article = Article.new
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
+      format.js
       format.json { render json: @article }
     end
   end
@@ -37,6 +38,7 @@ class Admin::ArticlesController < ApplicationController
     respond_to do |format|
       if @article.save
         format.html { redirect_to admin_articles_path, notice: 'Article was successfully created.' }
+        format.js
         format.json { render json: @article, status: :created, location: @article }
       else
         format.html { render action: "new" }
@@ -61,6 +63,7 @@ class Admin::ArticlesController < ApplicationController
     @article.destroy
     respond_to do |format|
       format.html { redirect_to admin_articles_path }
+      format.js
       format.json { head :no_content }
     end
   end
@@ -68,6 +71,9 @@ class Admin::ArticlesController < ApplicationController
   def published
     authorize! :publish, @article
     @article.toggle_published
-    redirect_to admin_articles_path
+    respond_to do |format|
+      format.html { redirect_to admin_articles_path }
+      format.js
+    end
   end
 end
