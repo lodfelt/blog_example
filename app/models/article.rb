@@ -25,9 +25,9 @@ class Article < ActiveRecord::Base
   end
   def self.search(search)
     if search
-      self.published.where('title LIKE ?', "%#{search}%")
+      published.where('title LIKE ?', "%#{search}%")
     else
-      self.published.all(include: :user)
+      published
     end
   end
 

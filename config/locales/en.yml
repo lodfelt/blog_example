@@ -45,6 +45,8 @@ en:
       by: "By:"
       comment: Comment on article
       on_date: "on"
+    articles:
+      no_articles_found: "No articles containing '%{query}' were found"
     comment:
       confirm_delete: "Are you sure you want to delete the comment?"
 

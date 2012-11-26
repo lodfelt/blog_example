@@ -1,11 +1,6 @@
 <%= link_to t(:'common.all_articles'), articles_path, id: "main-back" unless params[:search].blank? %>
-<% unless @articles.empty? %>
-  <ul id="articles" class="unstyled">
-    <% @articles.each do |article| %>
-      <li>
-        <%= render partial: "article", locals: { article: article, detailed: false } %>
-      </li>
-      <hr>
-    <% end %>
-  </ul>
-<% end %>
+<div id="article-section">
+  <% unless @articles.empty? %>
+    <%= render partial: "articles", locals: {articles: @articles} %>
+  <% end %>
+</div>

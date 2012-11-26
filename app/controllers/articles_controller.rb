@@ -4,10 +4,14 @@ class ArticlesController < ApplicationController
   layout "public"
 
   def index
-
-    @articles = Article.search(params[:search])
+    @articles = Article.search(params[:search]).paginate(per_page: 3, page: params[:page])
     respond_to do |format|
-      format.html # index.html.erb
+      format.html {
+        if request.xhr?
+          render partial: "articles/articles", locals: {articles: @articles}
+        end
+        # else render index.html as usual
+      }
       format.json { render json: @articles }
     end
   end

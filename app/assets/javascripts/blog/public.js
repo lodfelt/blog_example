@@ -9,4 +9,17 @@ $(document).ready(function() {
     $form.submit();
     return false;
   });
+
+  $('.form-search').submit(function(){
+    var $form = $(this);
+    var data = $form.serialize();
+    $.get(
+      $form.attr('action'),
+      data,
+      function (data) {
+        $("#article-section").empty().append(data);
+      }
+    );
+    return false;
+  });
 });
