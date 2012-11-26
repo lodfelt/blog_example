@@ -23,6 +23,7 @@ class Article < ActiveRecord::Base
     self.published = !(self.published)
     self.save
   end
+
   def self.search(search)
     if search
       published.where('title LIKE ?', "%#{search}%")
@@ -30,8 +31,6 @@ class Article < ActiveRecord::Base
       published
     end
   end
-
-
 
   private
 

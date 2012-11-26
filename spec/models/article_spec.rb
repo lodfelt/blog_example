@@ -28,4 +28,14 @@ describe Article do
       article.tags.last.name.should == "tag3"
     end
   end
+
+  context "searching" do
+    let!(:article) { FactoryGirl.create(:published, user_id: user.id, title: "My diary") }
+    let!(:article2) { FactoryGirl.create(:published, user_id: user.id, title: "My blog") }
+
+    it "returns published articles with titles containing keyword" do
+      Article.search("diary").size.should == 1
+      Article.search('My').size.should == 2
+    end
+  end
 end
