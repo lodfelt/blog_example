@@ -4,7 +4,8 @@ class ArticlesController < ApplicationController
   layout "public"
 
   def index
-    @articles = Article.published.all(include: :user)
+
+    @articles = Article.search(params[:search])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @articles }

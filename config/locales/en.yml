@@ -17,6 +17,7 @@ en:
     update: Update
     all_articles: Back to all articles
     close: Close
+    search: Search
   layouts:
     application:
       title: The blog

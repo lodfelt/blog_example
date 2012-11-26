@@ -13,10 +13,30 @@
 
 .navbar .container {
   width: 1170px;
+  height: 60px;
+  line-height: 60px;
   .nav {
     float: right;
-    .divider {
-      padding: 10px 0px;
+    > li {
+      height: 60px;
+      line-height: 60px;
+      > a {
+        padding: 0 15px;
+      }
+    }
+  }
+  .brand {
+    padding: 0px;
+    margin: 0px;
+  }
+  .form-search {
+    margin: 0px 0px 0px 20px;
+    float: left;
+    input[type='text'] {
+      width: 200px;
+    }
+    button {
+      margin: 0px;
     }
   }
 }

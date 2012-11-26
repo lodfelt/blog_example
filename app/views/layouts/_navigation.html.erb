@@ -1,4 +1,9 @@
 <a class="brand" href="<%= root_path %>">The blog!</a>
+
+<%= form_tag articles_path, method: 'get', class: "form-search" do %>
+  <%= text_field_tag :search, params[:search], class: "seach-query" %>
+  <button type="submit" class="btn"><%= t(:'common.search') %></button>
+<% end %>
 <ul class="nav">
   <% if user_signed_in?%>
     <li><%= link_to t(:'.log_out'), destroy_user_session_path %></li>
@@ -8,3 +13,8 @@
     <li><%= link_to t(:'.sign_up'), new_user_registration_path %></li>
   <% end %>
 </ul>
+
+
+
+
+
