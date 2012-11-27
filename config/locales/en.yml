@@ -78,6 +78,7 @@ en:
       edit:
         title: Edit article
       article:
+        viewed: "Viewed: "
         publish: Publish
         unpublish: Unpublish
         confirm_delete: Are you sure you want to delete article?
