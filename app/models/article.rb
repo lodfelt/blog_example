@@ -16,7 +16,7 @@ class Article < ActiveRecord::Base
   after_save :assign_tags
 
   def tag_names
-    @tag_names || tags.map(&:name).join(' ')
+    @tag_names || tags.map(&:name).join(", ")
   end
 
   def toggle_published
@@ -36,8 +36,8 @@ class Article < ActiveRecord::Base
 
   def assign_tags
     if @tag_names
-      self.tags = @tag_names.split(" ").map do |name|
-        Tag.find_or_create_by_name(name)
+      self.tags = @tag_names.split(",").map do |name|
+        Tag.find_or_create_by_name(name.strip)
       end
     end
   end

@@ -22,7 +22,7 @@ describe Article do
   context "tag_names" do
     let!(:article) { FactoryGirl.create(:article, user_id: user.id) }
     it "takes a whitespace delimited string, splits into array and creates individual tags" do
-      article.tag_names = "tag1 tag2 tag3"
+      article.tag_names = "tag1, tag2, tag3"
       article.save
       article.tags.first.name.should == "tag1"
       article.tags.last.name.should == "tag3"
