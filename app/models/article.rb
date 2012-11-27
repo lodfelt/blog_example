@@ -7,8 +7,10 @@ class Article < ActiveRecord::Base
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_many :images, class_name: "ArticleImage", dependent: :destroy
-  validates_numericality_of :user_id
+  has_many :impressions, as: :impressionable
   belongs_to :user
+
+  validates_numericality_of :user_id
   default_scope order: 'updated_at DESC'
   scope :published, -> { where(published: true) }
 
@@ -30,6 +32,14 @@ class Article < ActiveRecord::Base
     else
       published
     end
+  end
+
+  def impression_count
+    impressions.size
+  end
+
+  def unique_impression_count
+    impressions.group(:ip_address).size #UNTESTED: might not be correct syntax
   end
 
   private

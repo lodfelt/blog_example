@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   load_and_authorize_resource :article, except: [:index, :create, :new]
   before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :log_impression, only: [:show]
   layout "public"
 
   def index
@@ -21,5 +22,9 @@ class ArticlesController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @article }
     end
+  end
+
+  def log_impression
+    @article.impressions.create(ip_address: request.remote_ip, user_id:current_user.id)
   end
 end
