@@ -7,7 +7,7 @@
       </div>
     <% end %>
     <% if main_image.blank? %>
-      <div class="span10">
+      <div class="span9">
     <% else %>
       <div class="<%= detailed ? 'span9' : 'span6' %>">
     <% end %>
@@ -45,7 +45,7 @@
         <% end %>
         <footer>
           <p><%= t(:'articles.article.by') %> <%= article.user.name %>(<%= mail_to article.user.email %>)
-            <%= t(:'articles.article.on_date') %> <time><%= l article.created_at, format: :blog_short_time %></time>
+            <%= t(:'articles.article.on_date') %> <time><%= l article.published_on, format: :blog_short_day_month_year %></time>
           </p>
         </footer>
       </section>

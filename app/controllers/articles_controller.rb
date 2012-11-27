@@ -6,6 +6,9 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.search(params[:search]).paginate(per_page: 3, page: params[:page])
+    @articles_by_date = @articles.group_by(&:published_on)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+
     respond_to do |format|
       format.html {
         if request.xhr?

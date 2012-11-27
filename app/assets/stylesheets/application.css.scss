@@ -4,9 +4,11 @@
 @import "compass/css3";
 @import "compass/typography";
 
+@import "jquery.ui.datepicker";
 // ------ Partial imports
 
 @import "blog/admin";
+
 
 
 // ----- Navbar
@@ -153,8 +155,68 @@ figure {
   }
 }
 
+// ----- List and Calendar tabs -----
 
-// ----- Profile
+.content ul.nav-tabs {
+  margin-bottom: 10px;
+}
+
+#calendar-section {
+  display: none;
+
+  .calendar {
+    border-collapse: collapse;
+    width: 100%;
+
+    td, th {
+      font-family: "Lucida Grande", arial, helvetica, sans-serif;
+      font-size: 10px;
+      padding: 6px;
+      border: 1px solid #999;
+    }
+
+    th {
+      background: #0088CC;
+      color: white;
+      text-align: center;
+      width: 14.2857142857143%;
+    }
+
+    td {
+      background: #FFF;
+      color: #777;
+      height: 80px;
+      vertical-align: top;
+      font-size: 16px;
+    }
+
+    .notmonth, .notmonth a { color: #CCC; }
+    .today { background-color: #D7F2FF; }
+  }
+
+  #month {
+    margin: 0;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 22px;
+    a {
+      text-decoration: none;
+      padding: 0 10px;
+      color: #999;
+    }
+  }
+
+  ul {
+    font-size: 11px;
+    padding-left: 15px;
+    margin: 0px;
+    a {
+      font-size: 10px;
+    }
+  }
+}
+
+// ----- Profile -----
 
 section#profile-top {
   img {

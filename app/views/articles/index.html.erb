@@ -1,5 +1,31 @@
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a href="#article-section"><%= t(:'.list_articles') %></a>
+  </li>
+  <li>
+    <a href="#calendar-section"><%= t(:'.calendar') %></a>
+  </li>
+</ul>
 <div id="article-section">
   <% unless @articles.empty? %>
     <%= render partial: "articles", locals: {articles: @articles} %>
+  <% end %>
+</div>
+<div id="calendar-section">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% if @articles_by_date[date] %>
+      <% puts @articles_by_date[date] %>
+      <ul>
+        <% @articles_by_date[date].each do |article| %>
+          <li><%= link_to truncate(article.title, length: 20), article_path(article), title: article.title %></li>
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
 </div>

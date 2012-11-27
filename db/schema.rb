@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127091832) do
+ActiveRecord::Schema.define(:version => 20121127134632) do
 
   create_table "article_images", :force => true do |t|
     t.integer  "article_id"
@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(:version => 20121127091832) do
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "user_id"
-    t.boolean  "published",  :default => false
+    t.date     "published_on"
   end
 
   create_table "comments", :force => true do |t|

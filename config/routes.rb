@@ -13,7 +13,6 @@ Blog::Application.routes.draw do
 
   namespace :admin do
     resources :articles do
-      post 'published', on: :member
       resources :article_images, only: [:create, :update, :destroy]
     end
     resources :tags, only: [:destroy]

@@ -3,7 +3,7 @@
   <%= f.input :title %>
   <%= f.input :body, as: 'text' %>
   <%= f.input :tag_names %>
-  <%= f.input :published %>
+  <%= f.input :published_on, as: 'string' %>
   <%= f.button :submit %>
 <% end %>
 <% if @article.persisted? %>

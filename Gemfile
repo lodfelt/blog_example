@@ -37,6 +37,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'simple_form'
 gem "devise", "~> 2.1.2"
 gem "cancan", "~> 1.6.8"

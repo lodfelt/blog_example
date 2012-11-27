@@ -67,13 +67,4 @@ class Admin::ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def published
-    authorize! :publish, @article
-    @article.toggle_published
-    respond_to do |format|
-      format.html { redirect_to admin_articles_path }
-      format.js
-    end
-  end
 end

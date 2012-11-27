@@ -39,6 +39,8 @@ en:
 
   articles:
     index:
+      calendar: Calendar
+      list_articles: List articles
     article:
       comments: Comments
       tags: "Tags:"
@@ -96,3 +98,8 @@ en:
       blog_short_day: '%e'
       blog_short_month: '%b'
       blog_due_date: '%e %B %H:%M'
+  date:
+    formats:
+      blog_short_day_month_year: '%e %b %Y'
+      blog_short_day_month: '%e %b'
+      blog_short_day: '%e'

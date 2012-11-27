@@ -31,4 +31,15 @@ $(document).ready(function() {
     );
     return false;
   });
+
+  $('.nav-tabs a').click(function(e) {
+    var $tab = $(this);
+    var $otherTab = $tab.parent().siblings().find('a');
+    $($tab.attr('href')).toggle();
+    $tab.parent().toggleClass('active');
+
+    $($otherTab.attr('href')).toggle();
+    $otherTab.parent().toggleClass('active');
+    return false;
+  });
 });
