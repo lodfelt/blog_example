@@ -16,6 +16,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
+//= require jquery.cookie.js
 //= require bootstrap
 //= require_tree .
 //= require jquery-fileupload/basic

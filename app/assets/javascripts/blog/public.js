@@ -35,11 +35,36 @@ $(document).ready(function() {
   $('.nav-tabs a').click(function(e) {
     var $tab = $(this);
     var $otherTab = $tab.parent().siblings().find('a');
-    $($tab.attr('href')).toggle();
-    $tab.parent().toggleClass('active');
 
-    $($otherTab.attr('href')).toggle();
-    $otherTab.parent().toggleClass('active');
+    if(!$tab.parent().hasClass('active')) {
+      $($tab.attr('href')).toggle();
+      $tab.parent().addClass('active');
+
+      $($otherTab.attr('href')).toggle();
+      $otherTab.parent().removeClass('active');
+    }
+
+    var cookieName = 'tab-' + $tab.attr('href');
+    var otherCookieName = 'tab-' + $otherTab.attr('href');
+    if(!$.cookie(cookieName)) {
+      $.cookie(cookieName, 'choosen', { path: '/', expires: 1 } );
+    }
+
+    if($.cookie(otherCookieName)) {
+      $.removeCookie(otherCookieName, { path: '/' });
+    }
+
     return false;
   });
+
+  checkTabCookies()
 });
+
+function checkTabCookies() {
+  $('.nav-tabs a').each(function(i, link) {
+    var cookieName = 'tab-' + $(link).attr('href');
+    if($.cookie(cookieName)) {
+      $(link).click();
+    }
+  });
+}
