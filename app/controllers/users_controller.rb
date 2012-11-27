@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def show
     @profile = @user.profile
     @user_links = @profile.links.split(" ") unless @profile.links.blank?
-    @recent_posts = @user.articles(limit: 3)
+    @recent_posts = @user.articles.published.limit(3)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }

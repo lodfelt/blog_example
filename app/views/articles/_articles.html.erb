@@ -1,5 +1,5 @@
+  <%= link_to t(:'common.all_articles'), articles_path, id: "main-back" unless params[:search].blank? %>
   <% if articles.empty? %>
-    <%= link_to t(:'common.all_articles'), articles_path, id: "main-back" unless params[:search].blank? %>
     <div class="fallback"><%= t(:'.no_articles_found', query: params[:search]) %></div>
   <% end %>
 

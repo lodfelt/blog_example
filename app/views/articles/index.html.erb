@@ -1,4 +1,3 @@
-<%= link_to t(:'common.all_articles'), articles_path, id: "main-back" unless params[:search].blank? %>
 <div id="article-section">
   <% unless @articles.empty? %>
     <%= render partial: "articles", locals: {articles: @articles} %>

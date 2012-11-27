@@ -22,4 +22,13 @@ $(document).ready(function() {
     );
     return false;
   });
+  $("#article-section").on("click", ".pagination a", function() {
+    $.get(
+      this.href,
+      function (data) {
+        $("#article-section").empty().append(data);
+      }
+    );
+    return false;
+  });
 });
