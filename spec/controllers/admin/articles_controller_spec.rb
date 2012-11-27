@@ -53,7 +53,6 @@ describe Admin::ArticlesController do
       response_data.should be_a Hash
       response_data["body"].should == 'article body'
       response_data["title"].should == 'an article'
-      response_data["published"].should be_false
 
       response.location.should == article_url(response_data["id"])
     end
@@ -62,7 +61,6 @@ describe Admin::ArticlesController do
       put :update, format: :json, id: article.id, article: {
         title: "updated article",
         body: "updated body",
-        published: true
       }
 
       response.status.should be 200
@@ -70,7 +68,6 @@ describe Admin::ArticlesController do
       response_data.should be_a Hash
       response_data["body"].should == 'updated body'
       response_data["title"].should == 'updated article'
-      response_data["published"].should be_true
 
       response.location.should == article_url(response_data["id"])
     end

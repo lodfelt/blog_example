@@ -16,8 +16,8 @@ describe Article do
   end
 
   context "searching" do
-    let!(:article) { FactoryGirl.create(:published, user_id: user.id, title: "My diary") }
-    let!(:article2) { FactoryGirl.create(:published, user_id: user.id, title: "My blog") }
+    let!(:article) { FactoryGirl.create(:article, user_id: user.id, title: "My diary") }
+    let!(:article2) { FactoryGirl.create(:article, user_id: user.id, title: "My blog") }
 
     it "returns published articles with titles containing keyword" do
       Article.search("diary").size.should == 1
