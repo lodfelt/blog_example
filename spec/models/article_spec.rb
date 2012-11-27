@@ -5,20 +5,6 @@ describe Article do
   member_role = Role.create(name: "member")
   let(:user) { FactoryGirl.create(:user) }
 
-  context "published" do
-    let!(:unpublished) { FactoryGirl.create(:article, user_id: user.id) }
-    let!(:published) { FactoryGirl.create(:published, user_id: user.id) }
-
-    it "has scope published which returns all published articles" do
-      Article.published.count.should == 1
-    end
-
-    it "can toggle published via toggle_published method" do
-      unpublished.toggle_published
-      unpublished.published.should == true
-    end
-  end
-
   context "tag_names" do
     let!(:article) { FactoryGirl.create(:article, user_id: user.id) }
     it "takes a whitespace delimited string, splits into array and creates individual tags" do

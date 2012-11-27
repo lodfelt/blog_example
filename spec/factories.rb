@@ -34,10 +34,6 @@ FactoryGirl.define do
     sequence :body do |n|
       "body_#{n}"
     end
-
-    factory :published do
-      published true
-    end
   end
 
   factory :article_image do

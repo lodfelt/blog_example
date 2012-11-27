@@ -83,27 +83,6 @@ describe Admin::ArticlesController do
     end
   end
 
-  context "published" do
-    let(:admin_user) { FactoryGirl.create(:admin) }
-    let(:article) { FactoryGirl.create(:article, user: user) }
-    it "cant publish article via published action if not admin" do
-      post :published, id: article.id
-      article.reload
-      article.published.should == false
-    end
-
-    it "can publish if admin user" do
-      sign_in admin_user
-      post :published, id: article.id
-      article.reload
-      article.published.should == true
-
-      post :published, id: article.id
-      article.reload
-      article.published.should == false
-    end
-  end
-
   context "tags" do
     it "seperates the tags on whitepace when creating an article with multiple tags" do
       expect {
