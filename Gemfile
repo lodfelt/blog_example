@@ -43,6 +43,7 @@ gem 'simple_form'
 gem "devise", "~> 2.1.2"
 gem "cancan", "~> 1.6.8"
 gem 'rails-i18n'
+gem 'omniauth-twitter'
 
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"
