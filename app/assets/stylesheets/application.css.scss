@@ -293,6 +293,28 @@ section.profile {
   }
 }
 
+// ----- Media queries for different devices
+
+@media (min-width: 1200px) {
+  // Large screens
+  #calendar-section hr {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  //Tablet
+  #calendar-section hr {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  //Mobile
+  #calendar-section hr {
+    display: block;
+  }
+}
+
 // ----- Generic styling and rules
 
 .horizontal-list {
