@@ -43,7 +43,14 @@
   }
 }
 
-// ---- right aside
+// ----- Breadcrumb
+  ul.breadcrumb {
+    float: left;
+    background-color: white;
+    padding: 0px;
+  }
+
+// ----- right aside
 
 aside {
   hr {
@@ -56,6 +63,12 @@ aside {
     text-transform: uppercase;
     margin: 0 0 10px 0;
     line-height: 18px;
+  }
+  #tags.horizontal-list {
+    li {
+      padding: 0px;
+      margin-right: 5px;
+    }
   }
 }
 

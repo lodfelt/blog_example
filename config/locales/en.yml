@@ -9,6 +9,7 @@ en:
     models:
 
   common:
+    home: Home
     show: Show
     delete: Delete
     back: Back
@@ -75,6 +76,7 @@ en:
       index:
         title: All blog posts
         add_article: + Add article
+        manage_tags: "Manage tags »"
       new:
         title: New article
       edit:

@@ -47,7 +47,7 @@ gem 'carrierwave'
 gem "fog", "~> 1.3.1"
 gem "rmagick", "~> 2.13.1"
 gem 'will_paginate', '~> 3.0'
-# gem 'simple_form'
+gem 'ariane'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

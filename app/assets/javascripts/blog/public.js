@@ -1,4 +1,9 @@
 $(document).ready(function() {
+
+  if($(".breadcrumb").children().size() < 2) {
+    $(".breadcrumb").closest('.row').remove();
+  }
+
   $('.comment-on-article').click(function(e) {
     $(this).siblings('form').slideToggle();
     return false;

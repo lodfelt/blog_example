@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  include ActionView::Helpers::TextHelper
+
   load_and_authorize_resource :article, except: [:index, :create, :new]
   before_filter :authenticate_user!, except: [:index, :show]
   before_filter :log_impression, only: [:show]
@@ -29,5 +31,15 @@ class ArticlesController < ApplicationController
 
   def log_impression
     @article.impressions.create(ip_address: request.remote_ip, user_id:current_user.id)
+  end
+
+  protected
+
+  def set_ariane
+    super
+    if params[:id].present?
+      article = Article.find(params[:id])
+      ariane.add truncate(article.title, length: 30 ), article_path(article)
+    end
   end
 end

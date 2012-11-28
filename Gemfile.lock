@@ -30,6 +30,9 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
+    ariane (0.0.3)
+      actionpack (>= 2.3.0)
+      activesupport (>= 2.3.0)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.1.1.0)
     builder (3.0.4)
@@ -213,6 +216,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ariane
   bootstrap-sass (~> 2.1.1.0)
   cancan (~> 1.6.8)
   capybara

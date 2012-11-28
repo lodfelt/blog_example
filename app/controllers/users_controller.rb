@@ -24,4 +24,13 @@ class UsersController < ApplicationController
       end
     end
   end
+
+
+  protected
+
+  def set_ariane
+    super
+    user = User.find(params[:id])
+    ariane.add user.name, user_path(user)
+  end
 end

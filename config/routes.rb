@@ -15,7 +15,7 @@ Blog::Application.routes.draw do
     resources :articles do
       resources :article_images, only: [:create, :update, :destroy]
     end
-    resources :tags, only: [:destroy]
+    resources :tags, only: [:index, :destroy]
     root to: "articles#index"
   end
 
