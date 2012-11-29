@@ -12,7 +12,7 @@
     <li class="divider">|</li>
     <li><%= link_to t(:'.sign_up'), new_user_registration_path %></li>
     <li class="divider">|</li>
-    <li><%= link_to t(:'.sign_in_twitter'), user_omniauth_authorize_path(:twitter) %></li>
+    <li><%= link_to "", user_omniauth_authorize_path(:twitter), id: "sign-in-twitter", title: t(:'.sign_in_twitter') %></li>
   <% end %>
 </ul>
 
