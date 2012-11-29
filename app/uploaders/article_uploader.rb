@@ -3,8 +3,8 @@
 class ArticleUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
-  # storage :file
-  storage :fog
+  storage :file
+  # storage :fog
   include CarrierWave::MimeTypes
   process :set_content_type
 
