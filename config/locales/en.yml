@@ -26,7 +26,8 @@ en:
       log_out: Log out
       log_in: Log in
       sign_up: Sign up
-      sign_in_twitter: Sign in with twitter
+      sign_in_twitter: Sign in with Twitter
+      sign_in_facebook: Sign in with Facebook
     public:
       title: The blog
   shared:

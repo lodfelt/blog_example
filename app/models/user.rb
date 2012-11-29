@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_one :profile
   mount_uploader :avatar, AvatarUploader
   accepts_nested_attributes_for :profile
-  validates_confirmation_of :password, if: :password_required?
+  validates_uniqueness_of :email, :username
 
   def role?(role)
     return !!self.roles.find_by_name(role.to_s)

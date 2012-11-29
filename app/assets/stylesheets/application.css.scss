@@ -41,14 +41,18 @@
       margin: 0px;
     }
   }
-}
-
-#sign-in-twitter {
-  background: image-url("/assets/icons/twitter_logo.png") center center no-repeat;
-  display: inline-block;
-  height: 60px;
-  width: 16px;
-  padding: 0px 5px;
+  .sign-in-icon {
+    display: inline-block;
+    height: 60px;
+    width: 16px;
+    padding: 0px 5px !important;
+    &.twitter {
+      background: image-url("/assets/icons/twitter_logo.png") center center no-repeat;
+    }
+    &.facebook {
+      background: image-url("/assets/icons/facebook_logo.png") center center no-repeat;
+    }
+  }
 }
 
 // ----- Breadcrumb
