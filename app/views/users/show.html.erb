@@ -26,8 +26,11 @@
 <hr>
 <div class="row">
   <div class="span6">
-    <h2><%= t(:'.shared.recent_posts') %></h2>
+    <h2><%= t(:'shared.recent_posts') %></h2>
     <ul class="recent-posts unstyled profile">
+      <% if @recent_posts.empty? %>
+        <li class="fallback"><%= t(:'shared.no_recent_posts') %></li>
+      <% end %>
       <% @recent_posts.each do |article| %>
         <li>
           <%= image_tag article.images.main.first.image_url(:thumb) unless article.images.main.first.blank? %>

@@ -1,6 +1,10 @@
-<h3><%= t(:'.recent_posts') %></h3>
+<h3><%= t(:'shared.recent_posts') %></h3>
 <% unless Article.all.empty? %>
-  <ol class="recent-posts unstyled">
+  <ul class="recent-posts unstyled">
+    <% articles = Article.all %>
+    <% if articles.empty? %>
+      <li><%= t(:'shared.no_recent_posts') %></li>
+    <% end %>
     <% Article.all(limit: 3).each do |article| %>
       <li>
         <%= image_tag article.images.main.first.image_url(:small) unless article.images.main.first.blank? %>
@@ -9,5 +13,5 @@
         </h4>
       </li>
     <% end %>
-  </ol>
+  </ul>
 <% end %>

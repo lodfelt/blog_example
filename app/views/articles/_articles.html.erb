@@ -5,6 +5,9 @@
 
   <ul id="articles" class="unstyled">
     <% articles.each do |article| %>
+      <% if articles.empty? %>
+        <li><%= t(:'shared.no_recent_posts') %></li>
+      <% end %>
       <li>
         <%= render partial: "articles/article", locals: { article: article, detailed: false } %>
       </li>

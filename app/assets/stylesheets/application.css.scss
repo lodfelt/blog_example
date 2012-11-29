@@ -13,6 +13,9 @@
 
 // ----- Navbar
 
+.navbar .navbar-inner {
+  @include box-sizing(border-box);
+}
 .navbar .container {
   width: 1170px;
   height: 60px;
@@ -325,6 +328,14 @@ section.profile {
   #calendar-section hr {
     display: block;
   }
+  .navbar-inner {
+    padding: 0px 10px;
+  }
+
+  input#search {
+    width: 150px;
+  }
+
 }
 
 // ----- Generic styling and rules
@@ -377,7 +388,7 @@ section#profile-top {
   }
 }
 
-aside ol.recent-posts {
+aside ul.recent-posts {
   img {
     height: 45px;
     width: 68px;
