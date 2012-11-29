@@ -4,8 +4,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
 
-  # storage :fog
-  storage :file
+  storage :fog
+  # storage :file
   include CarrierWave::MimeTypes
   process :set_content_type
 

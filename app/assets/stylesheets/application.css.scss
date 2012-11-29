@@ -358,5 +358,46 @@ p {
   margin-bottom: 20px;
 }
 
+
+// ----- Image dimensions
+
+section.profile {
+  img {
+    height: 40px;
+    width: 45px;
+    overflow: hidden;
+  }
+}
+
+section#profile-top {
+  img {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+  }
+}
+
+aside ol.recent-posts {
+  img {
+    height: 45px;
+    width: 68px;
+    overflow: hidden;
+  }
+}
+
+ul.recent-posts.profile {
+  img {
+    height: 180px;
+    width: 270px;
+    overflow: hidden;
+  }
+}
+
+#articles article img {
+  height: 180px;
+  width: 270px;
+  overflow: hidden;
+}
+
 // ------ must be placed last
 @import "bootstrap-responsive";
