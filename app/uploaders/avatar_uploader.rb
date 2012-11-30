@@ -5,11 +5,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
   include CarrierWave::MimeTypes
 
-  if Rails.env.test? or Rails.env.cucumber?
-    storage :file
-  else
+  # if Rails.env.test? or Rails.env.cucumber?
+    # storage :file
+  # else
     storage :fog
-  end
+  # end
 
   process :set_content_type
 
