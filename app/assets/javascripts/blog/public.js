@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  if($("#nav-tabs").length < 1) {
+    $("form.form-search").hide();
+  }
+
   if($(".breadcrumb").children().size() < 2) {
     $(".breadcrumb").closest('.row').remove();
   }
@@ -23,6 +27,7 @@ $(document).ready(function() {
       data,
       function (data) {
         $("#article-section").empty().append(data);
+        $("#articles-tab").click();
       }
     );
     return false;

@@ -17,7 +17,7 @@ class ArticleUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    process resize_to_fill: [640, 360]
+    process resize_to_fill: [770, 420]
   end
 
   version :inline do

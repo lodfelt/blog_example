@@ -2,14 +2,14 @@
   <div class="row">
     <% main_image = article.images.main.first %>
     <% unless main_image.blank? %>
-      <div class="<%= detailed ? 'span9 large-image' : 'span3' %>">
+      <div class="<%= detailed ? 'span8 large-image' : 'span3' %>">
         <%= image_tag detailed ? main_image.image_url(:large).to_s : main_image.image_url(:thumb).to_s %>
       </div>
     <% end %>
     <% if main_image.blank? %>
-      <div class="span9">
+      <div class="span8">
     <% else %>
-      <div class="<%= detailed ? 'span9' : 'span6' %>">
+      <div class="<%= detailed ? 'span8' : 'span6' %>">
     <% end %>
       <section>
         <header>
@@ -21,26 +21,38 @@
             <% end %>
           </p>
         </header>
-        <div class="body">
-          <p>
-            <%= detailed ? (raw simple_format article.body) : (raw truncate( article.body, length: 200 )) %>
-            <% unless detailed %>
-              <%= link_to t(:'common.more'), article_path(article) %>
-            <% end %>
-          </p>
-        </section>
-        <% if detailed %>
-          <div class="images">
-            <% article.images.inline.each do |image| %>
-              <figure>
-                <%= image_tag image.image_url(:inline), class: "img-polaroid" %>
-                  <% if image.description.present? %>
-                    <figcaption>
-                      <%= image.description %>
-                    </figcaption>
-                  <% end %>
-              </figure>
-            <% end %>
+        <div class="row">
+          <div class="<%= detailed ? 'span7' : 'span6'%>">
+            <p class="tags">
+              <%= detailed ? (raw simple_format article.body) : (raw truncate( article.body, length: 200 )) %>
+              <% unless detailed %>
+                <%= link_to t(:'common.more'), article_path(article) %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+        <% if detailed && article.images.inline.present? %>
+          <hr>
+          <div class="row">
+            <div class="images span6">
+              <h3>Gallery</h3>
+              <ul class="unstyled horizontal-list article-images">
+                <% article.images.inline.each do |image| %>
+                  <li>
+                    <figure>
+                      <a href="<%= image.image_url %>" target="_blank">
+                        <%= image_tag image.image_url(:thumb).to_s %>
+                      </a>
+                      <% if image.description.present? %>
+                        <figcaption>
+                          <%= image.description %>
+                        </figcaption>
+                      <% end %>
+                    </figure>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
           </div>
         <% end %>
         <footer>
@@ -63,7 +75,7 @@
         <% end %>
       </ul>
     <% end %>
-    <a href="" class="comment-on-article"><%= t(:'.comment') %></a>
+    <a href="" class="btn comment-on-article"><%= t(:'.comment') %></a>
     <%= simple_form_for([article, article.comments.build]) do |f| %>
       <%= f.input :name %>
       <%= f.input :email%>

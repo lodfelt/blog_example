@@ -20,7 +20,7 @@ describe ArticleUploader do
 
   context 'versions' do
     it "large version should ave correct dimensions" do
-      @uploader.large.should have_dimensions(640, 360)
+      @uploader.large.should have_dimensions(770, 420)
     end
     it "inline version should ave correct dimensions" do
       @uploader.inline.should have_dimensions(410, 270)
