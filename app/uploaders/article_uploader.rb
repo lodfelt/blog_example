@@ -3,8 +3,12 @@
 class ArticleUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
-  storage :file
-  # storage :fog
+
+  if Rails.env.test? or Rails.env.cucumber?
+    storage :file
+  else
+    storage :fog
+  end
   include CarrierWave::MimeTypes
   process :set_content_type
 

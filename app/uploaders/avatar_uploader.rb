@@ -3,10 +3,14 @@
 class AvatarUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
-
-  # storage :fog
-  storage :file
   include CarrierWave::MimeTypes
+
+  if Rails.env.test? or Rails.env.cucumber?
+    storage :file
+  else
+    storage :fog
+  end
+
   process :set_content_type
 
   # Override the directory where uploaded files will be stored.
