@@ -31,10 +31,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [24, 24]
   end
 
-  def self.fog_public
-    true
-  end
-
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
    "/assets/fallback/" + [version_name, "default.png"].compact.join('_')
