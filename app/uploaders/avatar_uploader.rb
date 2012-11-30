@@ -5,11 +5,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
   include CarrierWave::MimeTypes
 
-  # if Rails.env.test? or Rails.env.cucumber?
-    # storage :file
-  # else
+  if Rails.env.test? or Rails.env.cucumber?
+    storage :file
+  else
     storage :fog
-  # end
+  end
 
   process :set_content_type
 
@@ -29,6 +29,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   version :mini do
     process resize_to_fill: [24, 24]
+  end
+
+  def self.fog_public
+    true
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

@@ -32,6 +32,10 @@ class ArticleUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [68, 45]
   end
 
+  def self.fog_public
+    true
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
