@@ -12,7 +12,7 @@ class Ability
       can [:edit, :update], Comment
       can :publish, Article
       can :destroy, Tag
-      can :update, User
+      can [:read, :update], User
       can [:create, :destroy], ArticleImage
     else
       #User is a visitor

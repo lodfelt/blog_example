@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   layout "public"
-  load_and_authorize_resource :user
+  load_resource :user
 
   def show
     @profile = @user.profile
@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    authorize! :update, @user
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to user_path(@user), notice: t(:'users.profile_updated') }
