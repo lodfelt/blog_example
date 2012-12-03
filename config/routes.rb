@@ -1,5 +1,7 @@
 Blog::Application.routes.draw do
 
+  get "sitemap/index"
+
   devise_for :users, {controllers: {omniauth_callbacks: "omniauth_callbacks"}}
 
   root to: "articles#index"
@@ -18,5 +20,7 @@ Blog::Application.routes.draw do
     resources :tags, only: [:index, :destroy]
     root to: "articles#index"
   end
+
+  match "/sitemap" => "sitemap#index", as: :sitemap, defaults: {format: :xml}
 
 end
