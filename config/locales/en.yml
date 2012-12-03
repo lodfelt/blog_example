@@ -21,7 +21,7 @@ en:
     search: Search
   layouts:
     application:
-      title: The blog
+      title: "lodfelt.se blog"
     navigation:
       log_out: Log out
       log_in: Log in
@@ -29,7 +29,7 @@ en:
       sign_in_twitter: Sign in with Twitter
       sign_in_facebook: Sign in with Facebook
     public:
-      title: The blog
+      title: "lodfelt.se blog"
   shared:
     recent_posts: Recent posts
     no_recent_posts: "No recent posts avaliable"
