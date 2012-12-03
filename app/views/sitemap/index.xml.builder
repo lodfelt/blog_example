@@ -1,7 +1,7 @@
 xml.instruct!
 xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
   xml.url do
-    xml.loc "http://www.yoursite.com"
+    xml.loc "http://www.lodfelt.se"
     xml.priority 1.0
   end
   for a in @articles
