@@ -1,4 +1,4 @@
-<span class="brand" href="">lodfelt.se</span>
+<span class="brand" href=""><%= link_to 'lodfelt.se', articles_path %></span>
 
 <%= form_tag articles_path, method: 'get', class: "form-search" do %>
   <%= text_field_tag :search, params[:search], class: "seach-query" %>
@@ -6,7 +6,16 @@
 <% end %>
 <ul class="nav">
   <% if user_signed_in?%>
-    <li><%= link_to t(:'.log_out'), destroy_user_session_path %></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        Account
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to t(:'.admin'), admin_articles_path %></li>
+        <li><%= link_to t(:'.log_out'), destroy_user_session_path %></li>
+      </ul>
+    </li>
   <% else %>
     <li><%= link_to t(:'.log_in'), user_session_path %></li>
     <li class="divider">|</li>

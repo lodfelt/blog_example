@@ -12,7 +12,10 @@ class Ability
       can [:edit, :update], Comment
       can :publish, Article
       can :destroy, Tag
-      can [:read, :update], User
+      can :read, User
+      can :update, User do |user_to_update|
+        user == user_to_update
+      end
       can [:create, :destroy], ArticleImage
     else
       #User is a visitor

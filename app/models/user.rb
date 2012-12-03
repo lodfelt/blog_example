@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 
   def name
     name = "#{first_name} #{last_name}".strip
+    name = username if name.blank?
     return "" if name.blank?
     name
   end

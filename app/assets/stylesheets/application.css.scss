@@ -27,12 +27,18 @@
       line-height: 60px;
       > a {
         padding: 0 15px;
+        .caret {
+          margin-top: 28px;
+        }
       }
     }
   }
   .brand {
     padding: 0px;
     margin: 0px;
+    > a {
+      color: #555;
+    }
   }
   .form-search {
     margin: 0px 0px 0px 20px;

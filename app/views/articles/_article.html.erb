@@ -17,13 +17,13 @@
           <p>
             <%= t(:'.tags') %>
             <% article.tags.each do |tag|%>
-              <%= link_to tag.name, tag_path(tag) %>
+              <%= link_to tag.name, tag_path(tag) %><%= ',' unless tag == article.tags.last %>
             <% end %>
           </p>
         </header>
         <div class="row">
           <div class="<%= detailed ? 'span7' : 'span6'%>">
-            <p class="tags">
+            <p>
               <%= detailed ? (raw simple_format article.body) : (raw truncate( article.body, length: 200 )) %>
               <% unless detailed %>
                 <%= link_to t(:'common.more'), article_path(article) %>
@@ -56,7 +56,7 @@
           </div>
         <% end %>
         <footer>
-          <p><%= t(:'articles.article.by') %> <%= article.user.name %>(<%= mail_to article.user.email %>)
+          <p><%= t(:'articles.article.by') %> <%= link_to article.user.name, user_path(article.user) %>
             <%= t(:'articles.article.on_date') %> <time><%= l article.published_on, format: :blog_short_day_month_year %></time>
           </p>
         </footer>

@@ -32,7 +32,7 @@
                 <%= yield %>
               </div>
               <aside class="span3">
-                <%= render partial: 'shared/profile' %>
+                <%= render partial: 'shared/profile' unless current_user.blank? %>
                 <hr>
                 <%= render partial: 'shared/recent_posts' %>
                 <hr>
