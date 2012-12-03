@@ -41,4 +41,6 @@ $(document).ready(function() {
 
     return false;
   });
+
+  $('#article_published_on').datepicker({dateFormat: 'yy-mm-dd'});
 });
