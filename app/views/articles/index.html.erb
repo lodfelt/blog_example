@@ -1,9 +1,13 @@
+<% content_for :head, auto_discovery_link_tag(:rss, articles_url(format: "rss")) %>
 <ul id="nav-tabs" class="nav nav-tabs">
   <li class="active">
     <a id="articles-tab" href="#article-section"><%= t(:'.list_articles') %></a>
   </li>
   <li>
     <a id="calendar-tab" href="#calendar-section"><%= t(:'.calendar') %></a>
+  </li>
+  <li class="rss-icon">
+    <%= link_to image_tag("icons/feed-icon-28x28.png"), articles_url(format: "rss") %>
   </li>
 </ul>
 <div id="article-section">

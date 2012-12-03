@@ -11,14 +11,8 @@ class ArticlesController < ApplicationController
     @articles_by_date = @articles.group_by(&:published_on)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
 
-    respond_to do |format|
-      format.html {
-        if request.xhr?
-          render partial: "articles/articles", locals: {articles: @articles}
-        end
-        # else render index.html as usual
-      }
-      format.json { render json: @articles }
+    if request.xhr?
+      render partial: "articles/articles", locals: {articles: @articles}
     end
   end
 

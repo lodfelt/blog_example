@@ -202,6 +202,18 @@ figure {
 
 .content ul.nav-tabs {
   margin-bottom: 10px;
+  .rss-icon {
+    float: right;
+    a {
+      padding: 0px;
+      border: none;
+      margin-bottom: 5px;
+      &:hover {
+        border: none;
+        background-color: white;
+      }
+    }
+  }
 }
 
 #calendar-section {
