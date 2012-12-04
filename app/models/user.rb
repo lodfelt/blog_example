@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         authentication_keys: [ :login ]
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :title, :body, :first_name, :last_name, :username, :avatar, :profile_attributes, :provider, :uid
   has_and_belongs_to_many :roles
@@ -11,6 +12,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   accepts_nested_attributes_for :profile
   validates_uniqueness_of :email
+  attr_accessor :login  # Virtual accessor that allows Devise authenticate on both username and email
 
   def role?(role)
     return !!self.roles.find_by_name(role.to_s)
@@ -21,6 +23,23 @@ class User < ActiveRecord::Base
     name = username if name.blank?
     return "" if name.blank?
     name
+  end
+
+  def login
+    username || email
+  end
+
+  def self.find_first_by_auth_conditions(orig_conditions)
+    conditions = orig_conditions.dup
+
+    if login = conditions.delete(:login)
+      where(conditions).where([
+        "lower(username) = :value OR lower(email) = :value",
+        { value: login.downcase }
+      ]).first
+    else
+      where(conditions).first
+    end
   end
 
   def associate_with_profile

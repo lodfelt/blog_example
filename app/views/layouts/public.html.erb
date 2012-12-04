@@ -37,12 +37,15 @@
                 <%= render partial: 'shared/recent_posts' %>
                 <hr>
                 <%= render partial: 'shared/tags', locals: {show_delete: false}%>
+                <hr id="tag-hr">
               </aside>
             </div>
           </div>
         </div>
         <footer>
+          <%= mail_to "kim@lodfelt.se", t(:'.contact_site') %> | Copyright © lodfelt.se
         </footer>
+        <%= render partial: "shared/login_modal" %>
       </div>
     </div>
   </body>

@@ -1,15 +1,13 @@
 <article <% if detailed %>class="detailed"<% end%>>
   <div class="row">
     <% main_image = article.images.main.first %>
-    <% unless main_image.blank? %>
-      <div class="<%= detailed ? 'span8 large-image' : 'span3' %>">
-        <%= image_tag detailed ? main_image.image_url(:large).to_s : main_image.image_url(:thumb).to_s %>
-      </div>
-    <% end %>
-    <% if main_image.blank? %>
-      <div class="span8">
+    <% if main_image.present? %>
+    <div class="<%= detailed ? 'span8 large-image' : 'span3' %>">
+      <%= image_tag detailed ? main_image.image_url(:large).to_s : main_image.image_url(:thumb).to_s %>
+    </div>
+    <div class="<%= detailed ? 'span8' : 'span6' %>">
     <% else %>
-      <div class="<%= detailed ? 'span8' : 'span6' %>">
+    <div class="span8">
     <% end %>
       <section>
         <header>
@@ -24,8 +22,10 @@
         <div class="row">
           <div class="<%= detailed ? 'span7' : 'span6'%>">
             <p>
-              <%= detailed ? (raw simple_format article.body) : (raw truncate( article.body, length: 200 )) %>
-              <% unless detailed %>
+              <% if detailed %>
+                <%= raw simple_format article.body %>
+              <% else %>
+                <%= raw truncate( article.body, length: 200 ) %>
                 <%= link_to t(:'common.more'), article_path(article) %>
               <% end %>
             </p>
@@ -35,7 +35,7 @@
           <hr>
           <div class="row">
             <div class="images span6">
-              <h3>Gallery</h3>
+              <h3><%= t(:'.gallery') %></h3>
               <ul class="unstyled horizontal-list article-images">
                 <% article.images.inline.each do |image| %>
                   <li>
@@ -61,26 +61,27 @@
           </p>
         </footer>
       </section>
+      <% if detailed %>
+      <hr>
+      <section id="comment-section">
+        <h3><%= t(:'articles.article.comments') %></h3>
+        <% unless  article.comments.empty? %>
+          <ul id="comments" class="unstyled">
+            <% article.comments.each do |comment| %>
+              <%= render partial: "articles/comment", locals: { comment: comment }%>
+            <% end %>
+          </ul>
+        <% end %>
+        <a href="" class="btn comment-on-article"><%= t(:'.comment') %></a>
+        <%= simple_form_for([article, article.comments.build]) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :email%>
+          <%= f.input :body, as: 'text'%>
+          <%= f.button :submit %>
+        <% end %>
+      </section>
+      <hr>
+      <% end %>
     </div>
   </div>
 </article>
-<% if detailed %>
-  <hr>
-  <section id="comment-area">
-    <h3><%= t(:'articles.article.comments') %></h3>
-    <% unless  article.comments.empty? %>
-      <ul id="comments" class="unstyled">
-        <% article.comments.each do |comment| %>
-          <%= render partial: "articles/comment", locals: { comment: comment }%>
-        <% end %>
-      </ul>
-    <% end %>
-    <a href="" class="btn comment-on-article"><%= t(:'.comment') %></a>
-    <%= simple_form_for([article, article.comments.build]) do |f| %>
-      <%= f.input :name %>
-      <%= f.input :email%>
-      <%= f.input :body, as: 'text'%>
-      <%= f.button :submit %>
-    <% end %>
-  </section>
-<% end %>

@@ -1,0 +1,23 @@
+<div id="login-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="login-modal-label"><%= t(:'layouts.application.title') %></h3>
+  </div>
+  <div class="modal-body">
+    <%= render partial: "devise/sessions/form", locals: {resource: User.new, modal: true}%>
+  </div>
+  <div class="modal-footer">
+    <%= link_to "", user_omniauth_authorize_path(:twitter),
+        class: "sign-in-icon twitter",
+        title: t(:'layouts.navigation.sign_in_twitter') %>
+        <%= link_to "", user_omniauth_authorize_path(:facebook),
+        class: "sign-in-icon facebook",
+        title: t(:'layouts.navigation.sign_in_facebook') %>
+
+
+    <button class="btn btn-primary" type="submit"><%= t(:'layouts.navigation.log_in') %></button>
+    <a class="btn" type="submit" href="<%= new_registration_path(resource_name) %>">
+      <%= t(:'layouts.navigation.sign_up') %>
+    </a>
+  </div>
+</div>

@@ -10,12 +10,12 @@
     <%= link_to image_tag("icons/feed-icon-28x28.png"), articles_url(format: "rss") %>
   </li>
 </ul>
-<div id="article-section">
+<section id="article-section">
   <% unless @articles.empty? %>
     <%= render partial: "articles", locals: {articles: @articles} %>
   <% end %>
-</div>
-<div id="calendar-section">
+</section>
+<section id="calendar-section">
   <h2 id="month">
     <%= link_to "<", date: @date.prev_month %>
     <%= @date.strftime("%B %Y") %>
@@ -33,4 +33,4 @@
     <% end %>
   <% end %>
   <hr>
-</div>
+</section>

@@ -19,6 +19,10 @@ $(document).ready(function() {
     return false;
   });
 
+  $("#login-modal .modal-footer").on("click", "button[type='submit']", function(e){
+    $("#login-modal #new_user").submit();
+  });
+
   $('.form-search').submit(function(){
     var $form = $(this);
     var data = $form.serialize();

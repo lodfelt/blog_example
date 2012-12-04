@@ -19,6 +19,7 @@ en:
     all_articles: Back to all articles
     close: Close
     search: Search
+    cancel: Cancel
   layouts:
     application:
       title: "lodfelt.se blog"
@@ -28,8 +29,10 @@ en:
       sign_up: Sign up
       sign_in_twitter: Sign in with Twitter
       sign_in_facebook: Sign in with Facebook
+      account: Account
     public:
       title: "lodfelt.se blog"
+      contact_site: "Contact lodfelt.se"
   shared:
     recent_posts: Recent posts
     no_recent_posts: "No recent posts avaliable"
@@ -50,6 +53,7 @@ en:
       by: "By:"
       comment: Comment on article
       on_date: "on"
+      gallery: Gallery
     articles:
       no_articles_found: "No articles containing '%{query}' were found"
     comment:
@@ -64,6 +68,7 @@ en:
       articles_with_tag: "Articles with tag "
 
   users:
+    email_or_username: "Email or Username"
     profile_updated: "Profile successfully updated"
     show:
       about: "About: "

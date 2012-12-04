@@ -24,7 +24,7 @@
       height: 60px;
       line-height: 60px;
       > a {
-        padding: 0 15px;
+        padding: 0 10px;
         .caret {
           margin-top: 28px;
         }
@@ -49,16 +49,20 @@
     }
   }
   .sign-in-icon {
-    display: inline-block;
     height: 60px;
-    width: 16px;
     padding: 0px 5px !important;
-    &.twitter {
-      background: image-url("/assets/icons/twitter_logo.png") center center no-repeat;
-    }
-    &.facebook {
-      background: image-url("/assets/icons/facebook_logo.png") center center no-repeat;
-    }
+  }
+}
+
+.sign-in-icon {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  &.twitter {
+    background: image-url("/assets/icons/twitter_logo.png") center center no-repeat;
+  }
+  &.facebook {
+    background: image-url("/assets/icons/facebook_logo.png") center center no-repeat;
   }
 }
 
@@ -222,6 +226,7 @@ figure {
   .calendar {
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 20px;
 
     td, th {
       font-family: "Lucida Grande", arial, helvetica, sans-serif;
@@ -298,8 +303,7 @@ section.profile {
 
 // ----- Comments on blog-articles
 
-#comment-area {
-  margin-bottom: 80px;
+#comment-section {
   .comment-on-article {
     display: inline-block;
     margin-bottom: 20px;
@@ -310,16 +314,16 @@ section.profile {
   @include border-radius(4px);
   width: 500px;
   margin-bottom: 25px;
-  border: 1px solid #666;
+  border: 1px solid #ccc;
   background: #F1F1F1;
 
   .comment {
     padding: 10px;
     .comment-author {
-      font-weight:bold;
-    }
-
-    .comment-body {
+      font-weight: bold;
+      a {
+        font-weight: normal;
+      }
     }
   }
 }
@@ -342,10 +346,16 @@ section.profile {
   #calendar-section hr {
     display: none;
   }
+  #tag-hr {
+    display: none;
+  }
 }
 @media (min-width: 768px) and (max-width: 979px) {
   //Tablet
   #calendar-section hr {
+    display: none;
+  }
+  #tag-hr {
     display: none;
   }
 }
@@ -362,8 +372,60 @@ section.profile {
   input#search {
     width: 150px;
   }
-
+  #tag-hr {
+    display: block;
+  }
 }
+
+// ----- Modals, login
+
+#new_user {
+  input[type='text'] {
+    width: 206px;
+  }
+  .control-group {
+    label {
+      width: 140px;
+    }
+    .controls {
+      margin-left: 160px;
+    }
+  }
+  #control-group-password .control-group.boolean {
+    margin-bottom: 5px;
+    label {
+      width: 95px;
+    }
+    .controls {
+      float: left;
+      margin-left: 0px;
+      input[type='checkbox'] {
+        margin-left: -10px;
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+#login-modal-label {
+  text-align: center;
+  color: #555;
+}
+
+#login-modal {
+  .modal-body {
+    background-color: #EFF1F2;
+  }
+  label {
+    color: #4E718B;
+  }
+  .modal-footer .sign-in-icon {
+    float: left;
+    height: 30px;
+    margin-right: 5px;
+  }
+}
+
 
 // ----- Generic styling and rules
 
@@ -394,6 +456,9 @@ p {
 #main-back {
   display: block;
   margin-bottom: 20px;
+}
+
+footer {
 }
 
 
