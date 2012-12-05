@@ -12,7 +12,6 @@ class Article < ActiveRecord::Base
 
   validates_numericality_of :user_id
   default_scope order: 'published_on DESC'
-  # scope :published, -> { where(published_on: true) }
 
   attr_writer :tag_names
   after_save :assign_tags

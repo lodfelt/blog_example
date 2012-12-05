@@ -89,9 +89,10 @@ en:
       updated_image: Updated image
       image_not_updated: Image was not updated
       index:
-        title: All blog posts
+        title: Create new article
         add_article: + Add article
         manage_tags: "Manage tags »"
+        all_articles: All articles
       new:
         title: New article
       edit:

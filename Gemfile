@@ -51,6 +51,7 @@ gem "fog", "~> 1.3.1"
 gem "rmagick", "~> 2.13.1"
 gem 'will_paginate', '~> 3.0'
 gem 'ariane'
+gem "bootstrap-wysihtml5-rails", "~> 0.3.1.13"
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
