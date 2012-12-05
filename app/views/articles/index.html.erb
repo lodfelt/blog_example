@@ -11,7 +11,9 @@
   </li>
 </ul>
 <section id="article-section">
-  <% unless @articles.empty? %>
+  <% if @articels.blank? %>
+    <p class="fallback"><%= t(:'.fallback_no_articles') %></p>
+  <% else %>
     <%= render partial: "articles", locals: {articles: @articles} %>
   <% end %>
 </section>

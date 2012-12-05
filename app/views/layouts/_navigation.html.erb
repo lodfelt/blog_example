@@ -1,4 +1,4 @@
-<span class="brand" href=""><%= link_to 'lodfelt.se', articles_path %></span>
+<%= link_to t(:'.lodfelt_se'), articles_path, class: 'brand' %>
 
 <%= form_tag articles_path, method: 'get', class: "form-search" do %>
   <%= text_field_tag :search, params[:search], class: "seach-query" %>
@@ -12,7 +12,7 @@
         <b class="caret"></b>
       </a>
       <ul class="dropdown-menu">
-        <li><%= link_to t(:'.admin'), admin_articles_path %></li>
+        <li><%= link_to t(:'.admin'), admin_articles_path, target: '_blank' %></li>
         <li><%= link_to t(:'.log_out'), destroy_user_session_path %></li>
       </ul>
     </li>
@@ -32,8 +32,3 @@
     </li>
   <% end %>
 </ul>
-
-
-
-
-
