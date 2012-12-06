@@ -1,0 +1,10 @@
+
+.container {
+  width: 1170px;
+}
+$width: 0px;
+@for $i from 1 through 12 {
+  .span#{$i} {
+    width: (($i - 1) * 100) + 70 + px;
+  }
+}

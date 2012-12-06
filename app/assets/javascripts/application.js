@@ -21,6 +21,7 @@
 //= require_tree .
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
+//= require modernizr
 
 // ----- Partial imports
 

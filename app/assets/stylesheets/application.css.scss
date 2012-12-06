@@ -11,9 +11,6 @@
 
 // ----- Navbar
 
-.navbar .navbar-inner {
-  @include box-sizing(border-box);
-}
 .navbar .container {
   width: 1170px;
   height: 60px;
