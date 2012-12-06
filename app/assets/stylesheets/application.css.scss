@@ -3,10 +3,10 @@
 @import "bootstrap";
 @import "compass/css3";
 @import "compass/typography";
-
+@import "bootstrap-wysihtml5";
 // ------ Partial imports
 
-@import "bootstrap-wysihtml5";
+@import "blog/pygments";
 
 // ----- Navbar
 

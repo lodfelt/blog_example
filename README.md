@@ -1,4 +1,6 @@
-blog_example
-============
+## This testing blog can be found at http://lodfelt.se!
 
-a tutorial blog
+``` ruby
+  puts 'testing'
+
+```

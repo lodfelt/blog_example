@@ -22,12 +22,8 @@
         <div class="row">
           <div class="<%= detailed ? 'span7' : 'span6'%>">
             <p>
-              <% if detailed %>
-                <%= raw simple_format article.body %>
-              <% else %>
-                <%= raw truncate( article.body, length: 200 ) %>
-                <%= link_to t(:'common.more'), article_path(article) %>
-              <% end %>
+              <%= output_content_for(article, detailed) %>
+              <%= link_to t(:'common.more'), article_path(article) unless detailed %>
             </p>
           </div>
         </div>

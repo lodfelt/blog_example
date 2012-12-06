@@ -44,7 +44,17 @@ $(document).ready(function() {
 
   $('#article_published_on').datepicker({dateFormat: 'yy-mm-dd'});
 
-    $('.wysihtml5').each(function(i, textarea) {
-      $(textarea).wysihtml5();
-    });
+  $('body').on('click', '#article_use_editor_true', function(e){
+    $('#article_markdown').closest('.control-group').addClass('hidden');
+    $('.wysihtml5-sandbox').closest('.control-group').removeClass('hidden');
+  });
+
+  $('body').on('click', '#article_use_editor_false', function(e){
+    $('.wysihtml5-sandbox').closest('.control-group').addClass('hidden');
+    $('#article_markdown').closest('.control-group').removeClass('hidden');
+  });
+
+  $('.wysihtml5').each(function(i, textarea) {
+    $(textarea).wysihtml5();
+  });
 });

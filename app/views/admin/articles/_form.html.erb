@@ -1,7 +1,32 @@
 <% @article.persisted? ? remote = {remote: false} : remote = {remote: true} %>
 <%= simple_form_for([:admin, @article], remote ) do |f| %>
   <%= f.input :title %>
-  <%= f.input :body, as: 'text', input_html: {class: 'wysihtml5'} %>
+  <% unless @article.persisted? %>
+    <div class="controls">
+      <ul class="unstyled horizontal-list">
+        <li>
+          <label class="radio">
+            <input type="radio" value="true" name="article[use_editor]" id="article_use_editor_true" class="radio_buttons optional">Use editor
+          </label>
+        </li>
+        <li>
+          <label class="radio">
+            <input type="radio" value="false" name="article[use_editor]" id="article_use_editor_false" class="radio_buttons optional">Use Markdown
+          </label>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :body, as: 'text', input_html: {class: 'wysihtml5'}  unless @article.persisted? && !@article.use_editor %>
+
+  <% unless @article.persisted? && @article.use_editor %>
+    <div class="control-group text optional <%= 'hidden' unless @article.persisted? && !@article.use_editor %>">
+      <label for="article_markdown" class="text optional control-label">Markdown</label>
+      <div class="controls">
+        <%= f.text_area :markdown %>
+      </div>
+    </div>
+  <% end %>
   <%= f.input :tag_names %>
   <%= f.input :published_on, as: 'string' %>
   <%= f.button :submit %>

@@ -53,6 +53,8 @@ gem 'will_paginate', '~> 3.0'
 gem 'ariane'
 gem "modernizr-rails", "~> 2.6.1"
 gem "bootstrap-wysihtml5-rails", "~> 0.3.1.13"
+gem 'pygments.rb'
+gem 'redcarpet'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
