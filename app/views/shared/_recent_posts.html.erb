@@ -1,19 +1,18 @@
-<% unless Article.all.empty? %>
-  <section id="recent posts">
-    <h3><%= t(:'shared.recent_posts') %></h3>
-    <ul class="recent-posts unstyled">
-      <% articles = Article.all %>
-      <% if articles.empty? %>
-        <li><%= t(:'shared.no_recent_posts') %></li>
-      <% end %>
-      <% Article.all(limit: 3).each do |article| %>
-        <li>
-          <%= image_tag article.images.main.first.image_url(:small) unless article.images.main.first.blank? %>
-          <h4 class="<%= 'with-image' unless article.images.main.first.blank? %>">
-            <%= link_to article.title, article_path(article) %>
-          </h4>
-        </li>
-      <% end %>
-    </ul>
-  </section>
-<% end %>
+<section id="recent posts">
+  <h3><%= t(:'shared.recent_posts') %></h3>
+  <ul class="recent-posts unstyled">
+    <% articles = Article.all %>
+    <% if articles.empty? %>
+      <li><%= t(:'shared.no_recent_posts') %></li>
+    <% end %>
+    <% Article.all(limit: 3).each do |article| %>
+      <li>
+        <%= image_tag article.images.main.first.image_url(:small) unless article.images.main.first.blank? %>
+        <h4 class="<%= 'with-image' unless article.images.main.first.blank? %>">
+          <%= link_to article.title, article_path(article) %>
+        </h4>
+      </li>
+    <% end %>
+  </ul>
+</section>
+<hr>

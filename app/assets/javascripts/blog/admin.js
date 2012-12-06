@@ -43,4 +43,8 @@ $(document).ready(function() {
   });
 
   $('#article_published_on').datepicker({dateFormat: 'yy-mm-dd'});
+
+    $('.wysihtml5').each(function(i, textarea) {
+      $(textarea).wysihtml5();
+    });
 });

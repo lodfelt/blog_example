@@ -35,6 +35,8 @@ GEM
       activesupport (>= 2.3.0)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.1.1.0)
+    bootstrap-wysihtml5-rails (0.3.1.13)
+      railties (>= 3.0)
     builder (3.0.4)
     cancan (1.6.8)
     capybara (1.1.3)
@@ -249,6 +251,7 @@ PLATFORMS
 DEPENDENCIES
   ariane
   bootstrap-sass (~> 2.1.1.0)
+  bootstrap-wysihtml5-rails (~> 0.3.1.13)
   cancan (~> 1.6.8)
   capybara
   carrierwave

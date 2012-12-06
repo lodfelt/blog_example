@@ -22,6 +22,7 @@
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require modernizr
+//= require bootstrap-wysihtml5
 
 // ----- Partial imports
 

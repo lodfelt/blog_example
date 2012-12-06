@@ -34,10 +34,8 @@
               </div>
               <aside class="span3">
                 <%= render partial: 'shared/profile' unless current_user.blank? %>
-                <hr>
-                <%= render partial: 'shared/recent_posts' %>
-                <hr>
-                <%= render partial: 'shared/tags', locals: {show_delete: false}%>
+                <%= render partial: 'shared/recent_posts' unless Article.all.empty? %>
+                <%= render partial: 'shared/tags', locals: {show_delete: false} unless Tag.all.empty? %>
                 <hr id="tag-hr">
               </aside>
             </div>

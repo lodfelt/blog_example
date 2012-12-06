@@ -2,6 +2,8 @@ class Admin::ArticlesController < ApplicationController
   load_and_authorize_resource :article, except: [:index, :create, :new]
   before_filter :authenticate_user!, except: [:index, :show]
 
+  layout 'admin'
+
   def index
     authorize! :access, :admin
     @articles = Article.all(include: :user)

@@ -11,7 +11,9 @@
   </li>
 </ul>
 <section id="article-section">
-  <% unless @articles.empty? %>
+  <% if @articles.blank? %>
+    <p class="fallback"><%= t(:'.fallback_no_articles') %></p>
+  <% else %>
     <%= render partial: "articles", locals: {articles: @articles} %>
   <% end %>
 </section>
@@ -27,7 +29,7 @@
       <% puts @articles_by_date[date] %>
       <ul>
         <% @articles_by_date[date].each do |article| %>
-          <li><%= link_to truncate(article.title, length: 20), article_path(article), title: article.title %></li>
+          <li><%= link_to truncate(article.title, length: 18), article_path(article), title: article.title %></li>
         <% end %>
       </ul>
     <% end %>

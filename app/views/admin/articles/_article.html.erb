@@ -1,10 +1,12 @@
-<article id="article_<%=article.id%>">
-  <div id="article-content">
-    <div class="title">
-      <h4><%= article.title %></h4>
-    </div>
-    <span><%= t(:'.viewed') %><%= article.impression_count%></span>
-  </div>
-  <%= link_to t(:'common.edit'), edit_admin_article_path(article) %> |
-  <%= link_to t(:'common.delete'), admin_article_path(article), confirm: t(:'.confirm_delete'), remote: true, method: :delete %>
-</article>
+<li>
+	<article id="article_<%=article.id%>">
+	  <div id="article-content">
+	    <div class="title">
+	      <h4><%= article.title %></h4>
+	    </div>
+	    <span><%= t(:'.viewed') %><%= article.impression_count%></span>
+	  </div>
+	  <%= link_to t(:'common.edit'), edit_admin_article_path(article) %> |
+	  <%= link_to t(:'common.delete'), admin_article_path(article), confirm: t(:'.confirm_delete'), remote: true, method: :delete %>
+  </article>
+</li>

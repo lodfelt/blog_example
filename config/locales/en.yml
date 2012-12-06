@@ -22,7 +22,7 @@ en:
     cancel: Cancel
   layouts:
     application:
-      title: "lodfelt.se blog"
+      title: "lodfelt.se"
     navigation:
       log_out: Log out
       log_in: Log in
@@ -30,9 +30,16 @@ en:
       sign_in_twitter: Sign in with Twitter
       sign_in_facebook: Sign in with Facebook
       account: Account
+      lodfelt_se: "lodfelt.se"
+    navigation_admin:
+      manage_articles: Manage articles
+      public_articles: Back to lodfelt.se
     public:
-      title: "lodfelt.se blog"
+      title: "lodfelt.se"
       contact_site: "Contact lodfelt.se"
+    admin:
+      title: "Admin"
+
   shared:
     recent_posts: Recent posts
     no_recent_posts: "No recent posts avaliable"
@@ -47,6 +54,7 @@ en:
     index:
       calendar: Calendar
       list_articles: List articles
+      fallback_no_articles: No articles posted yet
     article:
       comments: Comments
       tags: "Tags:"
@@ -81,9 +89,10 @@ en:
       updated_image: Updated image
       image_not_updated: Image was not updated
       index:
-        title: All blog posts
+        title: Create new article
         add_article: + Add article
         manage_tags: "Manage tags »"
+        all_articles: All articles
       new:
         title: New article
       edit:
