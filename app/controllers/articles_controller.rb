@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
   end
 
   def log_impression
-    @article.impressions.create(ip_address: request.remote_ip, user_id:current_user.id)
+    @article.impressions.create(ip_address: request.remote_ip, user_id: @article.user.id)
   end
 
   protected
