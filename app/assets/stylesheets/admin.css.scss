@@ -1,5 +1,11 @@
+// Framework imports
+@import "bootstrap";
+@import "compass/css3";
+@import "compass/typography";
 
+@import "application";
 @import "jquery.ui.datepicker";
+@import "bootstrap-wysihtml5";
 
 .article-images {
   margin-bottom: 20px !important;
@@ -42,3 +48,7 @@ form {
 iframe.wysihtml5-sandbox {
   width: 610px !important;
 }
+
+// ------ must be placed last
+@import "bootstrap-responsive";
+

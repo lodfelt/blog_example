@@ -6,6 +6,10 @@
     <title><%= content_for?(:title) ? yield(:title) : t(:'.title') %></title>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
+    <!--[if lte IE 8]>
+      <%= stylesheet_link_tag    "ie8", :media => "all" %>
+      <%= javascript_include_tag "ie8" %>
+    <![endif]-->
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>

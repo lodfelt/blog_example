@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   $('#new_article_image').fileupload({
     dataType: "script",

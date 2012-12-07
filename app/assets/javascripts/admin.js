@@ -1,4 +1,4 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
+// This is a manifest file that'll be compiled into admin.js, which will include all the files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
@@ -16,8 +16,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
-//= require jquery.cookie.js
 //= require bootstrap
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
-//= require blog/public
+//= require bootstrap-wysihtml5
+//= require blog/admin_scripts
