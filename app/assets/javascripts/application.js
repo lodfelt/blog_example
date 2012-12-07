@@ -28,3 +28,4 @@
 
 //= require blog/public
 //= require blog/admin
+//= require blog/ie8.js

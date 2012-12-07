@@ -6,11 +6,11 @@
     <title><%= content_for?(:title) ? yield(:title) : t(:'.title') %></title>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
-    <%= stylesheet_link_tag "ie8", :media => "all" %>
-    <%= javascript_include_tag "ie8" %>
-    <%= javascript_include_tag "third-party/selectivizr" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
+    <!--[if lte IE 8]>
+      <%= javascript_include_tag "third-party/selectivizr" %>
+    <![endif]-->
   </head>
   <body>
     <header class="navbar">
