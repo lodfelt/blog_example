@@ -23,6 +23,7 @@
 //= require jquery-fileupload/vendor/tmpl
 //= require modernizr
 //= require bootstrap-wysihtml5
+//= reguire thirt_party/selectivizr
 
 // ----- Partial imports
 
