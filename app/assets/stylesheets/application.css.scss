@@ -296,6 +296,12 @@ section.profile {
   }
 }
 
+#edit-user-modal {
+  #user_profile_attributes_links, #user_profile_attributes_about {
+    width: 400px;
+  }
+}
+
 // ----- Comments on blog-articles
 
 #comment-section {
