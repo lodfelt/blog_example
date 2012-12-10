@@ -68,8 +68,7 @@ Blog::Application.configure do
 
   config.middleware.use ExceptionNotifier,
     sender_address: 'noreply@lodfelt.se',
-    exception_recipients: 'kim@lodfelt.se',
-    ignore_exceptions: ExceptionNotifier.default_ignore_exceptions
+    exception_recipients: 'lodfelt@gmail.com'
 
   config.action_mailer.default_url_options = { host: 'http://www.lodfelt.se' }
   config.action_mailer.delivery_method = :smtp
