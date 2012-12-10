@@ -55,6 +55,7 @@ gem "modernizr-rails", "~> 2.6.1"
 gem "bootstrap-wysihtml5-rails", "~> 0.3.1.13"
 gem 'pygments.rb'
 gem 'redcarpet'
+gem 'exception_notification'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

@@ -65,6 +65,12 @@ Blog::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.middleware.use ExeptionNotifier,
+    sender_address: 'noreply@lodfelt.se',
+    exception_recipients: 'kim@lodfelt.se',
+    ignore_exceptions: ExceptionNotifier.default_ignore_exceptions
+
   config.action_mailer.default_url_options = { host: 'http://www.lodfelt.se' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
