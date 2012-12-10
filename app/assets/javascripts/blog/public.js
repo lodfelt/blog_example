@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+  $("#login-modal").on('keyup', "#new_user input[type='text'], #new_user input[type='password']", function(e) {
+    if (e.which == 13) {
+      $(this).closest('form').submit();
+    }
+    return true;
+  });
+
   if($("#nav-tabs").length < 1) {
     $("form.form-search").hide();
   }
