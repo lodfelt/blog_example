@@ -66,7 +66,7 @@ Blog::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.middleware.use ExeptionNotifier,
+  config.middleware.use ExceptionNotifier,
     sender_address: 'noreply@lodfelt.se',
     exception_recipients: 'kim@lodfelt.se',
     ignore_exceptions: ExceptionNotifier.default_ignore_exceptions
