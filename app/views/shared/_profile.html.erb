@@ -1,8 +1,8 @@
 <section id="profile">
   <div>
-    <%= image_tag current_user.avatar_url(:small).to_s, class: "img-polaroid" %>
-    <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+    <%= image_tag user.avatar_url(:small).to_s, class: "img-polaroid" %>
+    <p><%= user.first_name %> <%= user.last_name %></p>
   </div>
-  <%= link_to t(:'.profile_link'),  user_path(current_user) %>
+  <%= link_to t(:'.profile_link'),  user_path(user) %>
 </section>
 <hr>
