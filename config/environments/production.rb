@@ -77,9 +77,4 @@ Blog::Application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
 
-
-  config.middleware.use ExceptionNotifier,
-    sender_address: 'noreply@lodfelt.se',
-    exception_recipients: 'lodfelt@gmail.com'
-
 end
