@@ -21,10 +21,10 @@
         </header>
         <div class="row">
           <div class="<%= detailed ? 'span7' : 'span6'%>">
-            <p>
+            <div>
               <%= output_content_for(article, detailed) %>
-              <%= link_to t(:'common.more'), article_path(article) unless detailed %>
-            </p>
+              <%= link_to t(:'common.more'), article_path(article), class: "show-article" unless detailed %>
+            </div>
           </div>
         </div>
         <% if detailed && article.images.inline.present? %>

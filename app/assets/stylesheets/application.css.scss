@@ -145,7 +145,7 @@ article {
     }
 
     header p {
-      margin-bottom: 0px;
+      margin-bottom: 5px;
     }
     .body {
       margin-bottom: 0px;
@@ -153,6 +153,9 @@ article {
     .article-images {
       margin-bottom: 10px;
     }
+  }
+  #comment-section {
+    min-height: 0px;
   }
   .body {
     margin-bottom:1.5em;
@@ -176,6 +179,9 @@ article {
     }
   }
   &.detailed {
+  }
+  .show-article {
+    display: inline;
   }
 }
 
