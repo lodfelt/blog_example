@@ -12,7 +12,7 @@ module ArticlesHelper
       if article.body.present?
         return truncate(article.body, length: 200).html_safe
       elsif article.markdown.present?
-        return truncate(article.markdown, lenght: 200).html_safe
+        return truncate(article.markdown, length: 200).html_safe
       end
     end
   end
