@@ -15,9 +15,6 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.datepicker
 //= require jquery.cookie.js
 //= require bootstrap
-//= require jquery-fileupload/basic
-//= require jquery-fileupload/vendor/tmpl
 //= require blog/public
