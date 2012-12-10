@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(:version => 20121207082029) do
     t.integer "user_id"
   end
 
+  create_table "snippets", :force => true do |t|
+    t.integer  "article_id"
+    t.text     "content"
+    t.string   "language"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "taggings", :force => true do |t|
     t.integer  "article_id"
     t.integer  "tag_id"
