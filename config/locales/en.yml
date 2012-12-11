@@ -93,6 +93,9 @@ en:
         add_article: + Add article
         manage_tags: "Manage tags »"
         all_articles: All articles
+      drafts:
+        title: All drafts
+        no_drafts: No stored drafts
       new:
         title: New article
       edit:

@@ -16,6 +16,7 @@ Blog::Application.routes.draw do
   namespace :admin do
     resources :articles do
       resources :article_images, only: [:create, :update, :destroy]
+      get :drafts, on: :collection
     end
     resources :tags, only: [:index, :destroy]
     root to: "articles#index"

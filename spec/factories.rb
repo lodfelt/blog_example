@@ -34,6 +34,9 @@ FactoryGirl.define do
     sequence :body do |n|
       "body_#{n}"
     end
+    factory :draft do
+      draft true
+    end
   end
 
   factory :article_image do

@@ -4,11 +4,35 @@ describe Admin::ArticlesController do
 
   admin_role = Role.create(name: "admin")
   member_role = Role.create(name: "member")
-  let!(:user) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryGirl.create(:admin) }
 
   before(:each) do
     sign_in user
   end
+
+  context "index action" do
+    let!(:article) { FactoryGirl.create(:article, user: user) }
+    let!(:draft) { FactoryGirl.create(:draft, user: user) }
+
+    it "indexes only published articles and not drafts" do
+      get :index
+      response.status.should == 200
+      assigns(:articles).should == Article.published.all(include: :user)
+    end
+  end
+
+  context "drafts action" do
+    let!(:article) { FactoryGirl.create(:article, user: user) }
+    let!(:draft) { FactoryGirl.create(:draft, user: user) }
+
+    it "indexes only drafts" do
+      get :drafts
+      response.status.should == 200
+      assigns(:drafts).should == Article.drafts.all
+    end
+
+  end
+
   context "crud via browser" do
     let(:article) { FactoryGirl.create(:article, user: user) }
     it "is possible to create an article through the browser" do
