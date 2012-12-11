@@ -6,7 +6,7 @@ class Admin::ArticlesController < ApplicationController
 
   def index
     authorize! :access, :admin
-    @articles = Article.all(include: :user)
+    @articles = Article.published.all(include: :user)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @articles }

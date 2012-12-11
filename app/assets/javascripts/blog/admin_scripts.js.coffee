@@ -28,6 +28,14 @@ $(document).ready ->
 
     false
 
+  $("div.container").on 'click', '#save-draft', ->
+    params = {}
+    $form = $(@).closest('form')
+    $form.find("#article_draft").val("true")
+    $.post $form.attr("action"), $form.serialize(), (data) ->
+      window.location.reload()
+    false
+
   $("#article_published_on").datepicker dateFormat: "yy-mm-dd"
 
   $("body").on "click", "#article_use_editor_true", ->

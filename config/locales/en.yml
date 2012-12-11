@@ -106,6 +106,7 @@ en:
         add_image: Add image
         main: Main image
         images: Images
+        save_draft: Save draft
 
       comment:
         confirm_delete: "Are you sure you want to delete the comment?"

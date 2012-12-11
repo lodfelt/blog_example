@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :body, :title, :tag_names, :user_id, :published_on, :markdown, :use_editor
+  attr_accessible :body, :title, :tag_names, :user_id, :published_on, :markdown, :use_editor, :draft
 
   validates_presence_of :title
 
@@ -9,6 +9,8 @@ class Article < ActiveRecord::Base
   has_many :images, class_name: "ArticleImage", dependent: :destroy
   has_many :impressions, as: :impressionable
   belongs_to :user
+  scope :published, -> { where(draft: false) }
+  scope :drafts, -> { where(draft: true) }
 
   validates_numericality_of :user_id
   default_scope order: 'published_on DESC'
