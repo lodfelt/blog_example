@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html {
-          UserMailer.comment_on_article(@article).deliver
+          # UserMailer.comment_on_article(@article).deliver
           redirect_to(@article, notice: t(:'comments.created_notice'))
         }
         format.json  { render json: @article, status: :created, location: @article }
