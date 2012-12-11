@@ -39,6 +39,10 @@ en:
       contact_site: "Contact lodfelt.se"
     admin:
       title: "Admin"
+      articles: "Articles"
+      drafts: "Drafts"
+      tags: "Tags"
+
 
   shared:
     recent_posts: Recent posts

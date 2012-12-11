@@ -1,0 +1,10 @@
+<ul class="unstyled" id="tags">
+  <% tags.each do |tag| %>
+    <li>
+      <%= tag.name %>
+      <%= button_to t(:'common.delete'), admin_tag_path(tag),
+        confirm: t(:'shared.tags.confirm_delete'), method: :delete
+      %>
+    </li>
+  <% end %>
+</ul>

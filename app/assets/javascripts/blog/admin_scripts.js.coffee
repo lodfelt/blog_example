@@ -36,6 +36,11 @@ $(document).ready ->
       window.location.reload()
     false
 
+
+  $("#admin-tabs a").click ->
+    $(@).tab('show')
+    false
+
   $("#article_published_on").datepicker dateFormat: "yy-mm-dd"
 
   $("body").on "click", "#article_use_editor_true", ->

@@ -1,14 +1,1 @@
-<h2><%= t(:'.title') %></h2>
-<p><%= link_to(t(:'.add_article'), new_admin_article_path, id: "create-article", class: "btn", remote: true) if can? :create, Article %></p>
-<hr>
-<h3 id="all-articles"><%= t(:'.all_articles') %></h3>
-<ul id="articles" class="unstyled">
-  <% @articles.each do |article| %>
-    <% if @articles.empty? %>
-      <li><%= t(:'shared.no_recent_posts') %></li>
-    <% end %>
-    <%= render partial: "article", locals: { article: article, with_comments: false } %>
-  <% end %>
-</ul>
-<hr>
-<p><a href="<%= admin_tags_path %>"><%= t(:'.manage_tags') %></a></p>
+
