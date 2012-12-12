@@ -21,18 +21,6 @@ describe Admin::ArticlesController do
     end
   end
 
-  context "drafts action" do
-    let!(:article) { FactoryGirl.create(:article, user: user) }
-    let!(:draft) { FactoryGirl.create(:draft, user: user) }
-
-    it "indexes only drafts" do
-      get :drafts
-      response.status.should == 200
-      assigns(:drafts).should == Article.drafts.all
-    end
-
-  end
-
   context "crud via browser" do
     let(:article) { FactoryGirl.create(:article, user: user) }
     it "is possible to create an article through the browser" do
