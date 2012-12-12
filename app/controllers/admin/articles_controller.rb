@@ -50,6 +50,7 @@ class Admin::ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update_attributes(params[:article])
+        expire_fragment "recent_posts"
         format.html { redirect_to admin_articles_path, notice: 'Article was successfully updated.' }
         format.json { render json: @article, status: :ok, location: @article}
       else

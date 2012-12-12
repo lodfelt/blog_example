@@ -1,12 +1,14 @@
-<section id="tags">
-  <h3><%= t(:'.title') %></h3>
-  <ul id= "tags" class="unstyled horizontal-list">
-    <% tags = Tag.all %>
-    <% tags.each do |tag| %>
-      <li>
-        <%= link_to tag.name, tag_path(tag) %><% unless tag == tags.last %>,<% end %>
-      </li>
-    <% end %>
-  </ul>
-</section>
+<% cache 'shared_tags' do%>
+  <section id="tags">
+    <h3><%= t(:'.title') %></h3>
+    <ul id= "tags" class="unstyled horizontal-list">
+      <% tags = Tag.all %>
+      <% tags.each do |tag| %>
+        <li>
+          <%= link_to tag.name, tag_path(tag) %><% unless tag == tags.last %>,<% end %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
 
