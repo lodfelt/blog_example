@@ -1,85 +1,83 @@
-<% cache article do%>
-  <article <% if detailed %>class="detailed"<% end%>>
-    <div class="row">
-      <% main_image = article.images.main.first %>
-      <% if main_image.present? %>
-      <div class="<%= detailed ? 'span8 large-image' : 'span3' %>">
-        <%= image_tag detailed ? main_image.image_url(:large).to_s : main_image.image_url(:thumb).to_s %>
-      </div>
-      <div class="<%= detailed ? 'span8' : 'span6' %>">
-      <% else %>
-      <div class="span8">
-      <% end %>
-        <section>
-          <header>
-            <h2><%= article.title %></h2>
-            <p>
-              <%= t(:'.tags') %>
-              <% article.tags.each do |tag|%>
-                <%= link_to tag.name, tag_path(tag) %><%= ',' unless tag == article.tags.last %>
-              <% end %>
-            </p>
-          </header>
-          <div class="row">
-            <div class="<%= detailed ? 'span7' : 'span6'%>">
-              <div>
-                <%= output_content_for(article, detailed) %>
-                <%= link_to t(:'common.more'), article_path(article), class: "show-article" unless detailed %>
-              </div>
+<article <% if detailed %>class="detailed"<% end%>>
+  <div class="row">
+    <% main_image = article.images.main.first %>
+    <% if main_image.present? %>
+    <div class="<%= detailed ? 'span8 large-image' : 'span3' %>">
+      <%= image_tag detailed ? main_image.image_url(:large).to_s : main_image.image_url(:thumb).to_s %>
+    </div>
+    <div class="<%= detailed ? 'span8' : 'span6' %>">
+    <% else %>
+    <div class="span8">
+    <% end %>
+      <section>
+        <header>
+          <h2><%= article.title %></h2>
+          <p>
+            <%= t(:'.tags') %>
+            <% article.tags.each do |tag|%>
+              <%= link_to tag.name, tag_path(tag) %><%= ',' unless tag == article.tags.last %>
+            <% end %>
+          </p>
+        </header>
+        <div class="row">
+          <div class="<%= detailed ? 'span7' : 'span6'%>">
+            <div>
+              <%= output_content_for(article, detailed) %>
+              <%= link_to t(:'common.more'), article_path(article), class: "show-article" unless detailed %>
             </div>
           </div>
-          <% if detailed && article.images.inline.present? %>
-            <hr>
-            <div class="row">
-              <div class="images span6">
-                <h3><%= t(:'.gallery') %></h3>
-                <ul class="unstyled horizontal-list article-images">
-                  <% article.images.inline.each do |image| %>
-                    <li>
-                      <figure>
-                        <a href="<%= image.image_url %>" target="_blank">
-                          <%= image_tag image.image_url(:thumb).to_s %>
-                        </a>
-                        <% if image.description.present? %>
-                          <figcaption>
-                            <%= image.description %>
-                          </figcaption>
-                        <% end %>
-                      </figure>
-                    </li>
-                  <% end %>
-                </ul>
-              </div>
+        </div>
+        <% if detailed && article.images.inline.present? %>
+          <hr>
+          <div class="row">
+            <div class="images span6">
+              <h3><%= t(:'.gallery') %></h3>
+              <ul class="unstyled horizontal-list article-images">
+                <% article.images.inline.each do |image| %>
+                  <li>
+                    <figure>
+                      <a href="<%= image.image_url %>" target="_blank">
+                        <%= image_tag image.image_url(:thumb).to_s %>
+                      </a>
+                      <% if image.description.present? %>
+                        <figcaption>
+                          <%= image.description %>
+                        </figcaption>
+                      <% end %>
+                    </figure>
+                  </li>
+                <% end %>
+              </ul>
             </div>
-          <% end %>
-          <footer>
-            <p><%= t(:'articles.article.by') %> <%= link_to article.user.name, user_path(article.user) %>
-              <%= t(:'articles.article.on_date') %> <time><%= l article.published_on, format: :blog_short_day_month_year %></time>
-            </p>
-          </footer>
-        </section>
-        <% if detailed %>
-        <hr>
-        <section id="comment-section">
-          <h3><%= t(:'articles.article.comments') %></h3>
-          <% unless  article.comments.empty? %>
-            <ul id="comments" class="unstyled">
-              <% article.comments.each do |comment| %>
-                <%= render partial: "articles/comment", locals: { comment: comment }%>
-              <% end %>
-            </ul>
-          <% end %>
-          <a href="" class="btn comment-on-article"><%= t(:'.comment') %></a>
-          <%= simple_form_for([article, article.comments.build]) do |f| %>
-            <%= f.input :name %>
-            <%= f.input :email%>
-            <%= f.input :body, as: 'text'%>
-            <%= f.button :submit %>
-          <% end %>
-        </section>
-        <hr>
+          </div>
         <% end %>
-      </div>
+        <footer>
+          <p><%= t(:'articles.article.by') %> <%= link_to article.user.name, user_path(article.user) %>
+            <%= t(:'articles.article.on_date') %> <time><%= l article.published_on, format: :blog_short_day_month_year %></time>
+          </p>
+        </footer>
+      </section>
+      <% if detailed %>
+      <hr>
+      <section id="comment-section">
+        <h3><%= t(:'articles.article.comments') %></h3>
+        <% unless  article.comments.empty? %>
+          <ul id="comments" class="unstyled">
+            <% article.comments.each do |comment| %>
+              <%= render partial: "articles/comment", locals: { comment: comment }%>
+            <% end %>
+          </ul>
+        <% end %>
+        <a href="" class="btn comment-on-article"><%= t(:'.comment') %></a>
+        <%= simple_form_for([article, article.comments.build]) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :email%>
+          <%= f.input :body, as: 'text'%>
+          <%= f.button :submit %>
+        <% end %>
+      </section>
+      <hr>
+      <% end %>
     </div>
-  </article>
-<% end %>
+  </div>
+</article>
