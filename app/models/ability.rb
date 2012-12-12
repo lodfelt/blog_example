@@ -9,10 +9,7 @@ class Ability
     elsif user.role? :member
       can :read, :all
       can [:create, :edit, :update, :destroy], [Article, Comment]
-      can [:edit, :update], Comment
-      can :publish, Article
       can :destroy, Tag
-      can :read, User
       can :update, User do |user_to_update|
         user == user_to_update
       end
