@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   layout "public"
 
   def index
-    @articles = Article.search(params[:search]).paginate(per_page: 3, page: params[:page])
+    @articles = Article.search(params[:search]).paginate(per_page: 4, page: params[:page])
     @articles_by_date = @articles.group_by(&:published_on)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
 
