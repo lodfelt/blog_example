@@ -4,10 +4,6 @@ class Admin::TagsController < ApplicationController
 
   layout 'admin'
 
-  def index
-    @tags = Tag.all
-  end
-
   def destroy
     authorize! :delete, @tag
     @tag.destroy

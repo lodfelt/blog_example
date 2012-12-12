@@ -31,7 +31,7 @@ form{
   margin-top: 10px;
   margin-left: 20px;
   > li {
-    background-color: #eee;
+    background-color: #F2F2F2;
   }
 }
 
@@ -47,6 +47,10 @@ form {
 
 iframe.wysihtml5-sandbox {
   width: 610px !important;
+}
+
+#tags {
+  list-style: circle;
 }
 
 // ------ must be placed last

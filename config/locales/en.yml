@@ -104,11 +104,14 @@ en:
         title: New article
       edit:
         title: Edit article
+        create_from_draft: Create from draft
       article:
         viewed: "Viewed: "
         publish: Publish
         unpublish: Unpublish
         confirm_delete: Are you sure you want to delete article?
+      draft:
+        confirm_delete: Are you sure you want to delete draft?
       form:
         add_image: Add image
         main: Main image

@@ -26,7 +26,7 @@ class Article < ActiveRecord::Base
     if search
       where('title LIKE ?', "%#{search}%")
     else
-      scoped
+      published
     end
   end
 

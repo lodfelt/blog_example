@@ -1,6 +1,7 @@
+<% draft ||= false %>
 <% @article.persisted? ? remote = {remote: false} : remote = {remote: true} %>
 <%= simple_form_for([:admin, @article], remote ) do |f| %>
-  <%= f.input :draft, as: 'hidden'%>
+  <%= f.input :draft, as: 'hidden', input_html: { value: false } %>
   <%= f.input :title %>
   <% unless @article.persisted? %>
     <div class="controls">
@@ -30,8 +31,10 @@
   <% end %>
   <%= f.input :tag_names %>
   <%= f.input :published_on, as: 'string' %>
-  <%= f.button :submit, class: "btn-primary" %>
-  <button id="save-draft" type="button" class="btn"><%= t(:'.save_draft') %></a>
+  <%= f.button :submit, @article.draft? ? "Create article" : "Update article" , class: "btn-primary" %>
+  <% unless @article.persisted? %>
+    <button id="save-draft" type="button" class="btn"><%= t(:'.save_draft') %></a>
+  <% end %>
 <% end %>
 <% if @article.persisted? %>
   <h2><%= t(:'.images') %></h2>

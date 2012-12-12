@@ -10,7 +10,7 @@ $(document).ready ->
         alert "" + file.name + " is not a gif, jpeg, or png image file"
 
   $("#article-images").on "submit", ".edit_article_image", ->
-    $form = @
+    $form = $(@);
     $.post $form.attr("action"), $form.serialize(), (data) ->
       $form.closest("li").replaceWith data
 

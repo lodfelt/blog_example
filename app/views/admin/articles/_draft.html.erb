@@ -1,10 +1,12 @@
 <li>
-  <article id="article_<%=article.id%>">
+  <article id="article_<%=draft.id%>">
     <div id="article-content">
       <div class="title">
         <h4><%= draft.title %></h4>
         <%= simple_format draft.body %>
       </div>
     </div>
+    <%= link_to t(:'common.edit'), edit_admin_article_path(draft) %> |
+    <%= link_to t(:'common.delete'), admin_article_path(draft), confirm: t(:'.confirm_delete'), remote: true, method: :delete %>
   </article>
 </li>

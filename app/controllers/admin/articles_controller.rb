@@ -7,11 +7,8 @@ class Admin::ArticlesController < ApplicationController
   def index
     authorize! :access, :admin
     @articles = Article.published.all(include: :user)
-  end
-
-  def drafts
-    authorize! :access, :admin
     @drafts = Article.drafts.all
+    @tags = Tag.all
   end
 
   def show
