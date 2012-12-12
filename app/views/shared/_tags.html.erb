@@ -1,14 +1,10 @@
 <section id="tags">
   <h3><%= t(:'.title') %></h3>
   <ul id= "tags" class="unstyled horizontal-list">
-    <% for tag in Tag.find(:all, order: 'name') %>
+    <% tags = Tag.all %>
+    <% tags.each do |tag| %>
       <li>
-        <%= link_to tag.name, tag_path(tag) %>
-        <% if show_delete  %>
-          <%= button_to t(:'common.delete'), admin_tag_path(tag),
-              confirm: t(:'shared.tags.confirm_delete'),
-              method:  :delete if can? :access, :admin %>
-        <% end %>
+        <%= link_to tag.name, tag_path(tag) %><% unless tag == tags.last %>,<% end %>
       </li>
     <% end %>
   </ul>

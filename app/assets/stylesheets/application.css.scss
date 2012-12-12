@@ -1,8 +1,7 @@
 
 // Framework imports
 @import "bootstrap";
-@import "compass/css3";
-@import "compass/typography";
+@import "compass";
 // ------ Partial imports
 
 @import "blog/pygments";
@@ -44,22 +43,18 @@
     }
   }
   .sign-in-icon {
-    height: 60px;
-    padding: 0px 5px !important;
+    margin: 22px 5px 0 5px;
+    padding: 0 !important;
   }
 }
 
 .sign-in-icon {
-  display: inline-block;
   height: 16px;
   width: 16px;
-  &.twitter {
-    background: image-url("/assets/icons/twitter_logo.png") center center no-repeat;
-  }
-  &.facebook {
-    background: image-url("/assets/icons/facebook_logo.png") center center no-repeat;
-  }
 }
+
+@import "sprites/*.png";
+@include all-sprites-sprites;
 
 // ----- Breadcrumb
   ul.breadcrumb {
