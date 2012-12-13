@@ -66,6 +66,7 @@ en:
       comment: Comment on article
       on_date: "on"
       gallery: Gallery
+      full_article: Read article
     articles:
       no_articles_found: "No articles containing '%{query}' were found"
     comment:

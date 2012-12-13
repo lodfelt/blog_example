@@ -43,6 +43,7 @@ class Article < ActiveRecord::Base
   def assign_tags
     if @tag_names
       ActionController::Base.new.expire_fragment('shared_tags')
+      ActionController::Base.new.expire_fragment('all_articles')
       self.tags = @tag_names.split(",").map do |name|
         Tag.find_or_create_by_name(name.strip)
       end

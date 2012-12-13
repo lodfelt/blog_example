@@ -9,7 +9,7 @@
         <li><%= t(:'shared.no_recent_posts') %></li>
       <% end %>
       <li>
-        <%= render partial: "articles/article", locals: { article: article, detailed: false } %>
+        <%= render partial: "articles/article", locals: { article: article } %>
       </li>
       <hr>
     <% end %>

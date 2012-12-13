@@ -1,0 +1,82 @@
+<% cache article do %>
+<article class="detailed">
+  <div class="row">
+    <% main_image = article.images.main.first %>
+    <% if main_image.present? %>
+    <div class="span8 large-image">
+      <%= image_tag main_image.image_url(:large) %>
+    </div>
+    <div class="span8">
+    <% else %>
+    <div class="span8">
+    <% end %>
+      <section>
+        <header>
+          <h2><%= article.title %></h2>
+          <p>
+            <%= t(:'.tags') %>
+            <% article.tags.each do |tag|%>
+              <%= link_to tag.name, tag_path(tag) %><%= ',' unless tag == article.tags.last %>
+            <% end %>
+          </p>
+        </header>
+        <div class="row">
+          <div class="span7">
+            <div>
+              <%= output_detailed_content_for(article) %>
+            </div>
+          </div>
+        </div>
+        <% if article.images.inline.present? %>
+          <hr>
+          <div class="row">
+            <div class="images span6">
+              <h3><%= t(:'.gallery') %></h3>
+              <ul class="unstyled horizontal-list article-images">
+                <% article.images.inline.each do |image| %>
+                  <li>
+                    <figure>
+                      <a href="<%= image.image_url %>" target="_blank">
+                        <%= image_tag image.image_url(:thumb).to_s %>
+                      </a>
+                      <% if image.description.present? %>
+                        <figcaption>
+                          <%= image.description %>
+                        </figcaption>
+                      <% end %>
+                    </figure>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+        <footer>
+          <p><%= t(:'articles.article.by') %> <%= link_to article.user.name, user_path(article.user) %>
+            <%= t(:'articles.article.on_date') %> <time><%= l article.published_on, format: :blog_short_day_month_year %></time>
+          </p>
+        </footer>
+      </section>
+      <hr>
+      <section id="comment-section">
+        <h3><%= t(:'articles.article.comments') %></h3>
+        <% unless  article.comments.empty? %>
+          <ul id="comments" class="unstyled">
+            <% article.comments.each do |comment| %>
+              <%= render partial: "articles/comment", locals: { comment: comment }%>
+            <% end %>
+          </ul>
+        <% end %>
+        <a href="" class="btn comment-on-article"><%= t(:'.comment') %></a>
+        <%= simple_form_for([article, article.comments.build]) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :email%>
+          <%= f.input :body, as: 'text'%>
+          <%= f.button :submit %>
+        <% end %>
+      </section>
+      <hr>
+    </div>
+  </div>
+</article>
+<% end %>

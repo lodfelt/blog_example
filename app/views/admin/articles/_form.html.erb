@@ -31,7 +31,7 @@
   <% end %>
   <%= f.input :tag_names %>
   <%= f.input :published_on, as: 'string' %>
-  <%= f.button :submit, @article.draft? ? "Create article" : "Update article" , class: "btn-primary" %>
+  <%= f.button :submit, class: "btn-primary" %>
   <% unless @article.persisted? %>
     <button id="save-draft" type="button" class="btn"><%= t(:'.save_draft') %></a>
   <% end %>

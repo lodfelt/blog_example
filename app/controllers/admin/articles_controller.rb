@@ -37,6 +37,8 @@ class Admin::ArticlesController < ApplicationController
     @article.user_id = current_user.id
     respond_to do |format|
       if @article.save
+        expire_fragment "recent_posts"
+        expire_fragment "all_articles"
         format.html { redirect_to admin_articles_path, notice: 'Article was successfully created.' }
         format.js
         format.json { render json: @article, status: :created, location: @article }
@@ -51,6 +53,7 @@ class Admin::ArticlesController < ApplicationController
     respond_to do |format|
       if @article.update_attributes(params[:article])
         expire_fragment "recent_posts"
+        expire_fragment "all_articles"
         format.html { redirect_to admin_articles_path, notice: 'Article was successfully updated.' }
         format.json { render json: @article, status: :ok, location: @article}
       else
@@ -62,6 +65,8 @@ class Admin::ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
+    expire_fragment "recent_posts"
+    expire_fragment "all_articles"
     respond_to do |format|
       format.html { redirect_to admin_articles_path }
       format.js

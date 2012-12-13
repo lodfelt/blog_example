@@ -14,7 +14,9 @@
   <% if @articles.blank? %>
     <p class="fallback"><%= t(:'.fallback_no_articles') %></p>
   <% else %>
+    <% cache "all_articles" do %>
     <%= render partial: "articles", locals: {articles: @articles} %>
+    <% end %>
   <% end %>
 </section>
 <section id="calendar-section">

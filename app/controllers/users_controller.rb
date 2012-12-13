@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     authorize! :update, @user
     respond_to do |format|
       if @user.update_attributes(params[:user])
+        expire_fragment "user_profile"
         format.html { redirect_to user_path(@user), notice: t(:'users.profile_updated') }
         format.json { head :no_content }
       else
