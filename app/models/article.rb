@@ -24,8 +24,8 @@ class Article < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('title LIKE ?', "%#{search}%")
       ActionController::Base.new.expire_fragment('all_articles')
+      where('title LIKE ?', "%#{search}%")
     else
       published
     end
