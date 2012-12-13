@@ -23,7 +23,7 @@ $(document).ready ->
     $("#login-modal #new_user").submit()
 
   $('.form-search').submit ->
-    $form = @
+    $form = $(@)
     $.get $form.attr('action'), $form.serialize(),
      (data) ->
         $("#article-section").empty().append(data)
