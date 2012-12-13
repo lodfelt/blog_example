@@ -2,9 +2,9 @@ class CommentsController < ApplicationController
   load_and_authorize_resource :article
   load_and_authorize_resource :comment, except: [:create]
 
-
   def create
     @comment = @article.comments.build(params[:comment])
+    expire_fragment @article
     respond_to do |format|
       if @comment.save
         format.html {
