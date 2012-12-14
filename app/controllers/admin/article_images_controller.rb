@@ -15,6 +15,7 @@ class Admin::ArticleImagesController < ApplicationController
       if @article_image.update_attributes(params[:article_image])
         expire_fragment "recent_posts"
         expire_fragment "all_articles"
+        expire_fragment @article_image.article
         format.html { render partial: "admin/article_images/article_image", locals: {image: @article_image} }
         format.json { render json: @article, status: :ok, location: @article}
       else
@@ -28,6 +29,7 @@ class Admin::ArticleImagesController < ApplicationController
     @article_image.destroy
     expire_fragment "recent_posts"
     expire_fragment "all_articles"
+    expire_fragment @article_image.article
     respond_to do |format|
       format.html { head :ok }
       format.json { head :no_content }
