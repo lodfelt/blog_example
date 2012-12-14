@@ -37,28 +37,7 @@ $(document).ready ->
     false
 
   $('.nav-tabs a').click ->
-    $tab = $(@)
-    $otherTab = $tab.parent().siblings().find('a')
-
-    if !$tab.parent().hasClass('active')
-      $($tab.attr('href')).toggle()
-      $tab.parent().addClass('active')
-
-      $($otherTab.attr('href')).toggle()
-      $otherTab.parent().removeClass('active')
-
-    cookieName = 'tab-' + $tab.attr('href')
-    otherCookieName = 'tab-' + $otherTab.attr('href')
-    if !$.cookie(cookieName)
-      $.cookie cookieName, 'choosen', path: '/', expires: 1
-
-    if $.cookie(otherCookieName)
-      $.removeCookie otherCookieName, path: '/'
+    $(this).tab('show')
     false
 
-  checkTabCookies()
-
-checkTabCookies = ->
-  $(".nav-tabs a").each (i, link) ->
-    cookieName = "tab-" + $(link).attr("href")
-    $(link).click()  if $.cookie(cookieName)
+  $('.carousel').carousel()

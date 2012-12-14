@@ -1,40 +1,69 @@
 <% content_for :head, auto_discovery_link_tag(:rss, articles_url(format: "rss")) %>
 <ul id="nav-tabs" class="nav nav-tabs">
   <li class="active">
-    <a id="articles-tab" href="#article-section"><%= t(:'.list_articles') %></a>
+    <a id="slideshow-tab" href="#slideshow-section" data-toggle="tab"><%= t(:'.slideshow') %></a>
   </li>
   <li>
-    <a id="calendar-tab" href="#calendar-section"><%= t(:'.calendar') %></a>
+    <a id="articles-tab" href="#article-section" data-toggle="tab"><%= t(:'.list_articles') %></a>
+  </li>
+  <li>
+    <a id="calendar-tab" href="#calendar-section" data-toggle="tab"><%= t(:'.calendar') %></a>
   </li>
   <li class="rss-icon">
     <%= link_to image_tag("icons/feed-icon-28x28.png"), articles_url(format: "rss") %>
   </li>
 </ul>
-<section id="article-section">
-  <% if @articles.blank? %>
-    <p class="fallback"><%= t(:'.fallback_no_articles') %></p>
-  <% else %>
-    <% cache "all_articles" do %>
-    <%= render partial: "articles", locals: {articles: @articles} %>
+
+<div class="tab-content">
+  <section id="slideshow-section" class="tab-pane active">
+    <div class="row">
+      <div id="slideshow" class="carousel slide span8" data-inteval="50000" data-pause="hover">
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+          <% @articles.each do |article| %>
+            <div class="item <%= "active" if article == @articles.first %>">
+              <%= image_tag article.images.main.first.image_url(:large) %>
+              <div class="carousel-caption">
+                <h4><a href="<%= article_path(article) %>" class="element-link"><%= article.title %><span></span></a></h4>
+                <div class="content">
+                  <%= output_content_for(article) %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#slideshow" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#slideshow" data-slide="next">&rsaquo;</a>
+      </div>
+    </div>
+  </section>
+  <section id="article-section" class="tab-pane">
+    <% if @articles.blank? %>
+      <p class="fallback"><%= t(:'.fallback_no_articles') %></p>
+    <% else %>
+      <% cache "all_articles" do %>
+      <%= render partial: "articles", locals: {articles: @articles} %>
+      <% end %>
     <% end %>
-  <% end %>
-</section>
-<section id="calendar-section">
-  <h2 id="month">
-    <%= link_to "<", date: @date.prev_month %>
-    <%= @date.strftime("%B %Y") %>
-    <%= link_to ">", date: @date.next_month %>
-  </h2>
-  <%= calendar @date do |date| %>
-    <%= date.day %>
-    <% if @articles_by_date[date] %>
-      <% puts @articles_by_date[date] %>
-      <ul>
-        <% @articles_by_date[date].each do |article| %>
-          <li><%= link_to truncate(article.title, length: 18), article_path(article), title: article.title %></li>
-        <% end %>
-      </ul>
+  </section>
+  <section id="calendar-section" class="tab-pane">
+    <h2 id="month">
+      <%= link_to "<", date: @date.prev_month %>
+      <%= @date.strftime("%B %Y") %>
+      <%= link_to ">", date: @date.next_month %>
+    </h2>
+    <%= calendar @date do |date| %>
+      <%= date.day %>
+      <% if @articles_by_date[date] %>
+        <% puts @articles_by_date[date] %>
+        <ul>
+          <% @articles_by_date[date].each do |article| %>
+            <li><%= link_to truncate(article.title, length: 18), article_path(article), title: article.title %></li>
+          <% end %>
+        </ul>
+      <% end %>
     <% end %>
-  <% end %>
-  <hr>
-</section>
+    <hr>
+  </section>
+</div>
