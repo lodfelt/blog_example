@@ -9,6 +9,13 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.search(params[:search]).paginate(per_page: 4, page: params[:page])
     @articles_by_date = @articles.group_by(&:published_on)
+    @for_slideshow = []
+
+    Article.published.each do |article|
+      if article.images.main.first.present?
+        @for_slideshow << article
+      end
+    end
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
 
     if request.xhr?

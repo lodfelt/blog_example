@@ -20,8 +20,8 @@
       <div id="slideshow" class="carousel slide span8" data-inteval="50000" data-pause="hover">
         <!-- Carousel items -->
         <div class="carousel-inner">
-          <% @articles.each do |article| %>
-            <div class="item <%= "active" if article == @articles.first %>">
+          <% @for_slideshow.each do |article| %>
+            <div class="item <%= "active" if article == @for_slideshow.first %>">
               <%= image_tag article.images.main.first.image_url(:large) %>
               <div class="carousel-caption">
                 <h4><a href="<%= article_path(article) %>" class="element-link"><%= article.title %><span></span></a></h4>
