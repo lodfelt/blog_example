@@ -29,7 +29,7 @@
       </div>
     </div>
   <% end %>
-  <%= f.input :tag_names %>
+  <%= f.input :tag_names, input_html: { autocomplete: "off", class: "typeahead", data: {provide: "typeahead", source: Tag.all.map(&:name)} } %>
   <%= f.input :published_on, as: 'string' %>
   <%= f.button :submit, class: "btn-primary" %>
   <% unless @article.persisted? %>

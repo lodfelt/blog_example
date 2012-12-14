@@ -5,7 +5,7 @@
   <ul id="articles" class="unstyled">
     <% @articles.each do |article| %>
       <li>
-        <%= render partial: "articles/article", locals: { article: article, detailed: true } %>
+        <%= render partial: "articles/article", locals: { article: article } %>
       </li>
     <% end %>
   </ul>

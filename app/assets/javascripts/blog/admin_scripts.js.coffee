@@ -1,4 +1,9 @@
 $(document).ready ->
+
+  $(".typeahead").typeahead
+    items: 4
+    minLength: 2
+
   $("#new_article_image").fileupload
     dataType: "script"
     add: (e, data) ->
