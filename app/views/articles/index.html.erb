@@ -1,12 +1,12 @@
 <% content_for :head, auto_discovery_link_tag(:rss, articles_url(format: "rss")) %>
 <ul id="nav-tabs" class="nav nav-tabs">
+
   <li class="active">
-    <a id="slideshow-tab" href="#slideshow-section" data-toggle="tab"><%= t(:'.slideshow') %></a>
-  </li>
-  <li>
     <a id="articles-tab" href="#article-section" data-toggle="tab"><%= t(:'.list_articles') %></a>
   </li>
   <li>
+    <a id="slideshow-tab" href="#slideshow-section" data-toggle="tab"><%= t(:'.slideshow') %></a>
+  </li>  <li>
     <a id="calendar-tab" href="#calendar-section" data-toggle="tab"><%= t(:'.calendar') %></a>
   </li>
   <li class="rss-icon">
@@ -15,7 +15,16 @@
 </ul>
 
 <div class="tab-content">
-  <section id="slideshow-section" class="tab-pane active">
+  <section id="article-section" class="tab-pane active">
+    <% if @articles.blank? %>
+      <p class="fallback"><%= t(:'.fallback_no_articles') %></p>
+    <% else %>
+      <% cache "all_articles" do %>
+      <%= render partial: "articles", locals: {articles: @articles} %>
+      <% end %>
+    <% end %>
+  </section>
+  <section id="slideshow-section" class="tab-pane">
     <div class="row">
       <div id="slideshow" class="carousel slide span8" data-inteval="50000" data-pause="hover">
         <!-- Carousel items -->
@@ -37,15 +46,6 @@
         <a class="carousel-control right" href="#slideshow" data-slide="next">&rsaquo;</a>
       </div>
     </div>
-  </section>
-  <section id="article-section" class="tab-pane">
-    <% if @articles.blank? %>
-      <p class="fallback"><%= t(:'.fallback_no_articles') %></p>
-    <% else %>
-      <% cache "all_articles" do %>
-      <%= render partial: "articles", locals: {articles: @articles} %>
-      <% end %>
-    <% end %>
   </section>
   <section id="calendar-section" class="tab-pane">
     <h2 id="month">
