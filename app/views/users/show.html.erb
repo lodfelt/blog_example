@@ -38,7 +38,9 @@
             <h3>
               <%= link_to article.title, article_path(article) %>
             </h3>
-            <%= simple_format truncate(article.body, length: 200 ) %>
+            <div>
+              <%= output_content_for(article) %>
+            </div>
             <% unless article.tags.empty? %>
               <span class="important"><%= t(:'articles.article.tags') %></span>
               <ul class="tags unstyled horizontal-list">
