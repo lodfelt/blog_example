@@ -1,6 +1,7 @@
 <ul id="admin-tabs" class="nav nav-tabs">
   <li class="active"><a href="#articles-tab" data-toggle="tab"><%= t(:'.articles') %></a></li>
   <li><a href="#drafts-tab" data-toggle="tab"><%= t(:'.drafts') %></a></li>
+  <li><a href="#users-tab" data-toggle="tab"><%= t(:'.users') %></a></li>
   <li><a href="#tags-tab" data-toggle="tab"><%= t(:'.tags') %></a></li>
 </ul>
 <div class="tab-content">
@@ -9,6 +10,9 @@
   </div>
   <div class="tab-pane" id="drafts-tab">
     <%= render partial: "admin/articles/tabs/drafts_tab", locals: {drafts: @drafts} %>
+  </div>
+  <div class="tab-pane" id="users-tab">
+    <%= render partial: "admin/articles/tabs/users_tab", locals: {users: @users} %>
   </div>
   <div class="tab-pane" id="tags-tab">
     <%= render partial: "admin/articles/tabs/tags_tab", locals: {tags: @tags} %>

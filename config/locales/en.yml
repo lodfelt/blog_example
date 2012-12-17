@@ -32,7 +32,7 @@ en:
       account: Account
       lodfelt_se: "lodfelt.se"
     navigation_admin:
-      manage_articles: Manage articles
+      admin: Admin
       public_articles: Back to lodfelt.se
     public:
       title: "lodfelt.se"
@@ -118,9 +118,13 @@ en:
         main: Main image
         images: Images
         save_draft: Save draft
-
       comment:
         confirm_delete: "Are you sure you want to delete the comment?"
+      tabs:
+        article_tab:
+          title: Manage article
+        users_tab:
+          title: Manage users
   time:
     formats:
       blog_short_time: '%e %b %H:%M'

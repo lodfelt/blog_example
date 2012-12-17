@@ -34,6 +34,9 @@ GEM
       actionpack (>= 2.3.0)
       activesupport (>= 2.3.0)
     bcrypt-ruby (3.0.1)
+    best_in_place (2.0.2)
+      jquery-rails
+      rails (~> 3.1)
     bootstrap-sass (2.1.1.0)
     bootstrap-wysihtml5-rails (0.3.1.13)
       railties (>= 3.0)
@@ -257,6 +260,7 @@ PLATFORMS
 
 DEPENDENCIES
   ariane
+  best_in_place (~> 2.0.2)
   bootstrap-sass (~> 2.1.1.0)
   bootstrap-wysihtml5-rails (~> 0.3.1.13)
   cancan (~> 1.6.8)

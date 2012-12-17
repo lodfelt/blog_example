@@ -36,9 +36,13 @@ form{
 }
 
 form {
-  input[type='text'], textarea {
-    width: 400px;
+  input[type='text'], input[type='password'], input[type='email'], textarea {
+    width: 300px;
   }
+}
+
+#admin-new-user {
+  display: none;
 }
 
 #all-articles {

@@ -21,3 +21,5 @@
 //= require jquery-fileupload/vendor/tmpl
 //= require bootstrap-wysihtml5
 //= require blog/admin_scripts
+//= require jquery.purr
+//= require best_in_place

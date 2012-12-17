@@ -18,6 +18,7 @@ Blog::Application.routes.draw do
       resources :article_images, only: [:create, :update, :destroy]
       get :drafts, on: :collection
     end
+    resources :users, only: [:show, :create, :update, :destroy]
     resources :tags, only: [:index, :destroy]
     root to: "articles#index"
   end

@@ -46,6 +46,26 @@ $(document).ready ->
     $(@).tab('show')
     false
 
+
+  $('#create-user').click ->
+    $this = $(@)
+    $this.hide()
+    $this.parent().siblings('#admin-new-user').show()
+    $("#user_username").val('')
+    $("#user_password").val('')
+
+  $('.best_in_place').best_in_place()
+
+  $(".best_in_place").on "ajax:success", ->
+    $accordionHeader = $(@).closest('.accordion-body').siblings('.accordion-heading')
+    console.log($accordionHeader.data('url'))
+    $.get $accordionHeader.data('url'),
+      (data) ->
+        $accordionHeader.find('a').empty().append(data)
+    false
+
+
+
   $("#article_published_on").datepicker dateFormat: "yy-mm-dd"
 
   $("body").on "click", "#article_use_editor_true", ->

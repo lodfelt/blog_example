@@ -1,0 +1,50 @@
+<h2><%= t(:'.title') %></h2>
+<div>
+  <button type="button" class="btn" id="create-user"><%= t(:'.add_user') %></button>
+</div>
+
+<%= simple_form_for([:admin, User.new], html: {id: "admin-new-user"}) do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email, required: true%>
+  <%= f.input :username %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.input :avatar, as: 'file' %>
+  <%= f.button :submit, class: "btn btn-primary"%>
+<% end %>
+
+<hr>
+<h3 id="all-users"><%= t(:'.all_users') %></h3>
+<div class="accordion" id="user-accordion">
+  <% users.each do |user| %>
+    <div class="accordion-group">
+      <div class="accordion-heading" data-url="<%= admin_user_path(user) %>">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#user-accordion" href="#user-<%= user.id %>-collapse">
+          <%= render partial: "admin/users/full_name", locals: {user: user} %>
+        </a>
+      </div>
+      <div id="user-<%= user.id %>-collapse" class="accordion-body collapse">
+	      <div class="accordion-inner">
+	      	<%= image_tag user.avatar.url(:small)%>
+	      	<p>
+					  <b>First name:</b>
+					  <%= best_in_place user, :first_name, path: admin_user_path(user) %>
+					</p>
+	      	<p>
+					  <b>Last name:</b>
+					  <%= best_in_place user, :last_name, path: admin_user_path(user) %>
+					</p>
+	      	<p>
+					  <b>Username:</b>
+					  <%= best_in_place user, :username, path: admin_user_path(user) %>
+					</p>
+	      	<p>
+					  <b>Email:</b>
+					  <%= best_in_place user, :email, path: admin_user_path(user) %>
+					</p>
+      	</div>
+      </div>
+    </div>
+  <% end %>
+</div>

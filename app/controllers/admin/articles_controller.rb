@@ -9,6 +9,7 @@ class Admin::ArticlesController < ApplicationController
     @articles = Article.published.all(include: :user)
     @drafts = Article.drafts.all
     @tags = Tag.all
+    @users = User.all
   end
 
   def show
