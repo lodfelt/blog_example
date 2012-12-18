@@ -4,8 +4,6 @@ class UsersController < ApplicationController
   load_resource :user
 
   def show
-    @profile = @user.profile
-    @user_links = @profile.links.split(" ") unless @profile.links.blank?
     @recent_posts = @user.articles.limit(3)
     respond_to do |format|
       format.html # show.html.erb

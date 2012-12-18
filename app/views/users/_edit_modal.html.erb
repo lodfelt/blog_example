@@ -1,0 +1,21 @@
+<div id="edit-user-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3><%= t(:'.edit_profile') %></h3>
+  </div>
+  <div class="modal-body">
+    <%= simple_form_for(user) do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name%>
+      <%= f.input :avatar, as: 'file' %>
+      <%= f.simple_fields_for :profile do |f| %>
+        <%= f.input :links %>
+        <%= f.input :about %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t(:'common.close') %></button>
+    <button class="btn btn-primary"><%= t(:'common.update') %></button>
+  </div>
+</div>
