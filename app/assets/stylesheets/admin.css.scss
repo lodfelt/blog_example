@@ -57,6 +57,10 @@ iframe.wysihtml5-sandbox {
   list-style: circle;
 }
 
+.edit-in-place .icon-edit {
+  display: none;
+}
+
 // ------ must be placed last
 @import "bootstrap-responsive";
 

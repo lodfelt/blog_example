@@ -64,7 +64,14 @@ $(document).ready ->
         $accordionHeader.find('a').empty().append(data)
     false
 
+  $("p.edit-in-place").mouseenter ->
+    $(this).find("i").css('display', 'inline-block')
 
+  $("p.edit-in-place").mouseleave ->
+    $(this).find("i").css('display', 'none')
+
+  $("p.edit-in-place").click ->
+    $(@).find('i').css('display', 'none')
 
   $("#article_published_on").datepicker dateFormat: "yy-mm-dd"
 
