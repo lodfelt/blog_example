@@ -1,3 +1,4 @@
+<%= cache 'navigation' do %>
 <%= link_to t(:'.lodfelt_se'), articles_path, class: 'brand' %>
 
 <%= form_tag articles_path, method: 'get', class: "form-search" do %>
@@ -32,3 +33,4 @@
     </li>
   <% end %>
 </ul>
+<% end %>

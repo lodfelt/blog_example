@@ -39,5 +39,4 @@ class ArticlePresenter < BasePresenter
   def published_on
     h.l article.published_on, format: :blog_short_day_month_year
   end
-
 end
