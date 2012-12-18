@@ -1,63 +1,63 @@
-<% present @user do |user_presenter| %>
 
+<% present @user do |user_presenter| %>
   <div class="row">
     <div class="span9">
-      <section id="profile-top">
-        <%= user_presenter.avatar %>
-        <div class="content">
-          <h1><%= user_presenter.name %>
-            <% if can? :update, @user %>
-              <a href="#edit-user-modal" role="button" class="btn" data-toggle="modal"><%= t(:'common.edit') %></a>
-            <% end %>
-          </h1>
-          <div>
-            <span class="important"><%= t(:'.email') %></span>
-            <span><%= mail_to user_presenter.email, user_presenter.email %></span>
+      <% if can? :update, @user %>
+        <a id="edit-user-button" href="#edit-user-modal" role="button" class="btn" data-toggle="modal"><%= t(:'common.edit') %></a>
+      <% end %>
+      <% cache @user do %>
+        <section id="profile-top">
+          <%= user_presenter.avatar %>
+          <div class="content">
+            <h1><%= user_presenter.name %>
+            </h1>
+            <div>
+              <span class="important"><%= t(:'.email') %></span>
+              <span><%= mail_to user_presenter.email, user_presenter.email %></span>
+            </div>
+            <span class="important"><%= t(:'.about') %></span>
+            <%= simple_format user_presenter.about %>
+            <span class="important"><%= t(:'.find_me_here') %></span>
+            <ul class="unstyled horizontal-list">
+              <%= user_presenter.links %>
+            </ul>
           </div>
-          <span class="important"><%= t(:'.about') %></span>
-          <%= simple_format user_presenter.about %>
-          <span class="important"><%= t(:'.find_me_here') %></span>
-          <ul class="unstyled horizontal-list">
-            <%= user_presenter.links %>
-          </ul>
-        </div>
-      </section>
+        </section>
+      <% end %>
     </div>
   </div>
-  <hr>
-  <div class="row">
-    <div class="span7">
-      <h2><%= t(:'shared.recent_posts') %></h2>
-      <ul class="recent-posts unstyled profile">
-        <% if @recent_posts.empty? %>
-          <li class="fallback"><%= t(:'shared.no_recent_posts') %></li>
-        <% end %>
-        <% @recent_posts.each do |article| %>
-          <li>
-            <%= image_tag article.images.main.first.image_url(:thumb) unless article.images.main.first.blank? %>
-            <section class="<%= 'with-image' unless article.images.main.first.blank? %>">
-              <h3>
-                <%= link_to article.title, article_path(article) %>
-              </h3>
-              <div>
-                <%= output_content_for(article) %>
-              </div>
-              <% unless article.tags.empty? %>
-                <span class="important"><%= t(:'articles.article.tags') %></span>
-                <ul class="tags unstyled horizontal-list">
-                  <% article.tags.each do |tag| %>
-                   <li><%= link_to tag.name, tag_path(tag) %></li>
-                  <% end %>
-                </ul>
-              <% end %>
-            </section>
-          </li>
-          <hr>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-
 <% end %>
-
+<hr>
+<div class="row">
+  <div class="span7">
+    <h2><%= t(:'shared.recent_posts') %></h2>
+    <ul class="recent-posts unstyled profile">
+      <% if @recent_posts.empty? %>
+        <li class="fallback"><%= t(:'shared.no_recent_posts') %></li>
+      <% end %>
+      <% @recent_posts.each do |article| %>
+        <li>
+          <%= image_tag article.images.main.first.image_url(:thumb) unless article.images.main.first.blank? %>
+          <section class="<%= 'with-image' unless article.images.main.first.blank? %>">
+            <h3>
+              <%= link_to article.title, article_path(article) %>
+            </h3>
+            <div>
+              <%= output_content_for(article) %>
+            </div>
+            <% unless article.tags.empty? %>
+              <span class="important"><%= t(:'articles.article.tags') %></span>
+              <ul class="tags unstyled horizontal-list">
+                <% article.tags.each do |tag| %>
+                 <li><%= link_to tag.name, tag_path(tag) %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </section>
+        </li>
+        <hr>
+      <% end %>
+    </ul>
+  </div>
+</div>
 <%= render partial: "edit_modal", locals: {user: @user} %>
