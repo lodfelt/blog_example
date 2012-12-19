@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(:version => 20121211123756) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "drafts", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.text     "markdown"
+    t.integer  "user_id"
+    t.boolean  "use_editor"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "impressions", :force => true do |t|
     t.string   "impressionable_type"
     t.integer  "impressionable_id"
@@ -69,6 +79,14 @@ ActiveRecord::Schema.define(:version => 20121211123756) do
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "role_id"
     t.integer "user_id"
+  end
+
+  create_table "snippets", :force => true do |t|
+    t.integer  "article_id"
+    t.text     "content"
+    t.string   "language"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "taggings", :force => true do |t|
