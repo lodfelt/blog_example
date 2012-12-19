@@ -434,12 +434,12 @@ section.profile {
   }
 }
 
-#login-modal-label {
+.login-modal-label {
   text-align: center;
   color: #555;
 }
 
-#login-modal {
+.login-modal {
   .modal-body {
     background-color: #EFF1F2;
   }
@@ -448,8 +448,8 @@ section.profile {
   }
   .modal-footer .sign-in-icon {
     float: left;
-    height: 30px;
     margin-right: 5px;
+    margin-top: 7px;
   }
 }
 

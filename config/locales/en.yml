@@ -47,6 +47,8 @@ en:
   shared:
     recent_posts: Recent posts
     no_recent_posts: "No recent posts avaliable"
+    sign_up_modal_header: Sign up at lodfelt.se
+    login_modal_header: Login to lodfelt.se
     tags:
       title: Tags
       confirm_delete: "Are you sure you want to delete the tag?"
@@ -89,6 +91,16 @@ en:
       email: "Email: "
       edit_profile: Edit profile
 
+  devise:
+    sessions:
+      new:
+        sign_in: Sign in to lodfelt.se
+      form:
+        password: Password
+    registrations:
+      new:
+        register: Register
+
   admin:
     articles:
       updated_image: Updated image
@@ -125,6 +137,13 @@ en:
           title: Manage article
         users_tab:
           title: Manage users
+          select_role: "Select a role:"
+          first_name: "First name:"
+          last_name: "Last name:"
+          username: "Username"
+          password: "Password:"
+          email: "Email:"
+
   time:
     formats:
       blog_short_time: '%e %b %H:%M'

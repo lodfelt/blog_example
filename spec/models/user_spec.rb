@@ -1,14 +1,12 @@
 require 'spec_helper'
 
 describe User do
-  admin_role = Role.create(name: "admin")
-  member_role = Role.create(name: "member")
   let(:user) { FactoryGirl.create(:user) }
 
   context "roles" do
     it "defaults to a member when a user is created in the system" do
-      user.role?(:member).should be_true
-      user.role?(:admin).should be_false
+      user.role.should == "author"
+      user.role.should_not == "admin"
     end
   end
 

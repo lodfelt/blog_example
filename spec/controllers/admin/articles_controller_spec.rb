@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe Admin::ArticlesController do
 
-  admin_role = Role.create(name: "admin")
-  member_role = Role.create(name: "member")
   let!(:user) { FactoryGirl.create(:admin) }
 
   before(:each) do

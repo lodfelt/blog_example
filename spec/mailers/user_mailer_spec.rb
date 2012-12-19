@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe UserMailer do
-  admin_role = Role.create(name: "admin")
-  member_role = Role.create(name: "member")
   let(:user) { FactoryGirl.create(:user) }
   let!(:article) { FactoryGirl.create(:article, user_id: user.id) }
 

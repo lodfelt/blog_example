@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe ArticleImage do
-  admin_role = Role.create(name: "admin")
-  member_role = Role.create(name: "member")
   let(:user) { FactoryGirl.create(:user) }
 
   context "update_main_article" do

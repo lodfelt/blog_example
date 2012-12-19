@@ -4,8 +4,6 @@ require 'spec_helper'
 describe ArticleUploader do
   include CarrierWave::Test::Matchers
 
-  admin_role = Role.create(name: "admin")
-  member_role = Role.create(name: "member")
   let(:user) { FactoryGirl.create(:user) }
   let!(:article) { FactoryGirl.create(:article, user_id: user.id) }
 

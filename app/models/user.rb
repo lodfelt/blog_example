@@ -3,10 +3,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          authentication_keys: [ :login ]
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :title, :body, :first_name, :last_name, :username, :avatar, :profile_attributes, :provider, :uid
-  has_and_belongs_to_many :roles
-  before_create :assign_role
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
+  :title, :body, :first_name, :last_name, :username, :avatar, :profile_attributes, :provider, :uid, :role
   after_create :associate_with_profile
+  after_create :assign_role
+  after_create :release_cache
   has_many :articles
   has_one :profile
   mount_uploader :avatar, AvatarUploader
@@ -14,9 +15,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   attr_accessor :login  # Virtual accessor that allows Devise authenticate on both username and email
 
-  def role?(role)
-    return !!self.roles.find_by_name(role.to_s)
-  end
+
+  ROLES = %w[admin author]
 
   def name
     name = "#{first_name} #{last_name}".strip
@@ -40,10 +40,6 @@ class User < ActiveRecord::Base
     else
       where(conditions).first
     end
-  end
-
-  def associate_with_profile
-    self.profile = Profile.new unless self.profile
   end
 
   def self.from_omniauth(auth)
@@ -78,9 +74,18 @@ class User < ActiveRecord::Base
   end
 
   private
+
   def assign_role
-    if self.role_ids.empty?
-      self.role_ids = [2]
+    if self.role.blank?
+      self.role = "author"
     end
+  end
+
+  def associate_with_profile
+    self.profile = Profile.new unless self.profile
+  end
+
+  def release_cache
+    ActionController::Base.new.expire_fragment('navigation')
   end
 end

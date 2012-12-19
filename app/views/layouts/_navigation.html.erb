@@ -22,7 +22,9 @@
       <a href="#login-modal" data-toggle="modal"><%= t(:'.log_in') %></a>
     </li>
     <li class="divider">|</li>
-    <li><%= link_to t(:'.sign_up'), new_user_registration_path %></li>
+    <li>
+      <a href="#sign-up-modal" data-toggle="modal"><%= t(:'.sign_up') %></a>
+    </li>
     <li class="divider">|</li>
     <li>
       <%= link_to "", user_omniauth_authorize_path(:twitter), class: "sign-in-icon sprites-twitter", title: t(:'.sign_in_twitter') %>

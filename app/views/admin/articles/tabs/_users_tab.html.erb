@@ -11,6 +11,7 @@
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
   <%= f.input :avatar, as: 'file' %>
+  <%= f.input :role, collection: User::ROLES, prompt: t(:'.select_role') %>
   <%= f.button :submit, class: "btn btn-primary"%>
 <% end %>
 
@@ -28,22 +29,27 @@
 	      <div class="accordion-inner">
 	      	<%= image_tag user.avatar.url(:small)%>
           <p class="edit-in-place">
-					  <b>First name:</b>
+					  <b><%= t(:'.first_name') %></b>
 					  <%= best_in_place user, :first_name, path: admin_user_path(user) %>
             <i class="icon-edit"></i>
 					</p>
           <p class="edit-in-place">
-					  <b>Last name:</b>
+					  <b><%= t(:'.last_name') %></b>
 					  <%= best_in_place user, :last_name, path: admin_user_path(user) %>
             <i class="icon-edit"></i>
 					</p>
           <p class="edit-in-place">
-					  <b>Username:</b>
+					  <b><%= t(:'.username') %></b>
 					  <%= best_in_place user, :username, path: admin_user_path(user) %>
             <i class="icon-edit"></i>
 					</p>
           <p class="edit-in-place">
-					  <b>Email:</b>
+            <b><%= t(:'.password') %></b>
+            <%= best_in_place user, :password, path: admin_user_path(user) %>
+            <i class="icon-edit"></i>
+          </p>
+          <p class="edit-in-place">
+					  <b><%= t(:'.email') %></b>
 					  <%= best_in_place user, :email, path: admin_user_path(user) %>
             <i class="icon-edit"></i>
 					</p>

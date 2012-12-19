@@ -1,10 +1,10 @@
-<div id="login-modal" class="login-modal modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="sign-up-modal" class="login-modal modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 class="login-modal-label"><%= t(:'shared.login_modal_header') %></h3>
+    <h3 class="login-modal-label"><%= t(:'shared.sign_up_modal_header') %></h3>
   </div>
   <div class="modal-body">
-    <%= render partial: "devise/sessions/form", locals: {resource: User.new, modal: true}%>
+    <%= render partial: "devise/registrations/form", locals: {resource: User.new, modal: true} %>
   </div>
   <div class="modal-footer">
     <%= link_to "", user_omniauth_authorize_path(:twitter),
@@ -14,10 +14,6 @@
         class: "sign-in-icon sprites-facebook",
         title: t(:'layouts.navigation.sign_in_facebook') %>
 
-
-    <button class="btn btn-primary" type="submit"><%= t(:'layouts.navigation.log_in') %></button>
-    <a class="btn" type="submit" href="<%= new_registration_path(resource_name) %>">
-      <%= t(:'layouts.navigation.sign_up') %>
-    </a>
+    <button class="btn btn-primary" type="submit"><%= t(:'layouts.navigation.sign_up') %></button>
   </div>
 </div>

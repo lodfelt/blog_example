@@ -15,15 +15,16 @@ FactoryGirl.define do
       "password_#{n}"
     end
 
-    factory :member do
+    factory :author do
+      role 'author'
     end
 
     factory :admin do
-      role_ids [1]
+      role 'admin'
     end
 
     factory :visitor do
-      role_ids []
+      role ''
     end
   end
 

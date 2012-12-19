@@ -1,9 +1,8 @@
 <% modal ||= modal %>
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
   <%= f.input :login, label: t(:'users.email_or_username'), autofocus: true %>
-  <%#= f.input :password %>
   <div id="control-group-password" class="control-group password optional">
-    <label for="user_password" class="password optional control-label">Password</label>
+    <label for="user_password" class="password optional control-label"><%= t(:'.password') %></label>
     <div class="controls">
       <input type="password" size="50" name="user[password]" id="user_password" class="password optional">
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>

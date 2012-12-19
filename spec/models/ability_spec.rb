@@ -3,8 +3,6 @@ require "cancan/matchers"
 
 describe Ability do
 
-  admin_role = Role.create(name: "admin")
-  member_role = Role.create(name: "member")
   let(:ability) { Ability.new(user) }
   let(:article) { FactoryGirl.create :article }
 
@@ -28,7 +26,7 @@ describe Ability do
   end
 
   context "permissons for users with member role" do
-    let(:user) { FactoryGirl.create(:member) }
+    let(:user) { FactoryGirl.create(:author) }
 
     it "can crud articles but not access admin" do
       ability.should be_able_to(:read, :all)

@@ -1,6 +1,6 @@
 $(document).ready ->
 
-  $("#login-modal").on 'keyup', "#new_user input[type='text'], #new_user input[type='password']", (e) ->
+  $(".login-modal").on 'keyup', "#new_user input[type='text'], #new_user input[type='password']", (e) ->
     if e.which == 13
       $(this).closest('form').submit()
     true
@@ -19,8 +19,8 @@ $(document).ready ->
     $("#edit-user-modal").find('form').submit()
     false
 
-  $("#login-modal .modal-footer").on "click", "button[type='submit']", ->
-    $("#login-modal #new_user").submit()
+  $(".login-modal .modal-footer").on "click", "button[type='submit']", ->
+    $(".login-modal form").submit()
 
   $('.form-search').submit ->
     $form = $(@)

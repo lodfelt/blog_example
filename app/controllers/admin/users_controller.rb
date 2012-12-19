@@ -19,7 +19,7 @@ class Admin::UsersController < ApplicationController
         format.html { redirect_to admin_articles_path, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
-        format.html { redirect_to admin_articles_path, notice: "User was not created" }
+        format.html { redirect_to admin_articles_path, notice: @article.errors.full_messages.join(", ") }
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
