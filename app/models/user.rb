@@ -50,10 +50,12 @@ class User < ActiveRecord::Base
         user.username = auth.info.nickname
         user.avatar = auth.info.image
       elsif auth.provider == "facebook"
+
         user.provider = auth.provider
         user.uid = auth.uid
         user.username = auth.info.nickname
         user.email = auth.info.email
+        # user.remote_avatar_url  = auth.info.image image provided by facebook is really small and does not look good when cropped
         user.first_name = auth.info.first_name
         user.last_name = auth.info.last_name
       end
