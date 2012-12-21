@@ -37,23 +37,29 @@
       <% end %>
       <% @recent_posts.each do |article| %>
         <li>
-          <%= image_tag article.images.main.first.image_url(:thumb) unless article.images.main.first.blank? %>
-          <section class="<%= 'with-image' unless article.images.main.first.blank? %>">
-            <h3>
-              <%= link_to article.title, article_path(article) %>
-            </h3>
-            <div>
-              <%= output_content_for(article) %>
+          <div class="row">
+            <div class="span3">
+              <%= image_tag article.images.main.first.image_url(:thumb) unless article.images.main.first.blank? %>
             </div>
-            <% unless article.tags.empty? %>
-              <span class="important"><%= t(:'articles.article.tags') %></span>
-              <ul class="tags unstyled horizontal-list">
-                <% article.tags.each do |tag| %>
-                 <li><%= link_to tag.name, tag_path(tag) %></li>
+            <div class="span4">
+              <section class="<%= 'with-image' unless article.images.main.first.blank? %>">
+                <h3>
+                  <%= link_to article.title, article_path(article) %>
+                </h3>
+                <div>
+                  <%= output_content_for(article) %>
+                </div>
+                <% unless article.tags.empty? %>
+                  <span class="important"><%= t(:'articles.article.tags') %></span>
+                  <ul class="tags unstyled horizontal-list">
+                    <% article.tags.each do |tag| %>
+                     <li><%= link_to tag.name, tag_path(tag) %></li>
+                    <% end %>
+                  </ul>
                 <% end %>
-              </ul>
-            <% end %>
-          </section>
+              </section>
+            </div>
+          </div>
         </li>
         <hr>
       <% end %>
