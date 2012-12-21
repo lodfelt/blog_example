@@ -15,7 +15,7 @@ class ArticlePresenter < BasePresenter
     html = ""
     article.tags.each do |tag|
       html << h.link_to(tag.name, h.tag_path(tag))
-      hthml << ',' unless tag == article.tags.last
+      html << ',' unless tag == article.tags.last
     end
     html
   end
