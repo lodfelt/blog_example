@@ -90,6 +90,7 @@ aside {
     @include clearfix;
     margin-bottom: 10px;
     img {
+      float: left;
     }
     section {
       margin: 0px;
@@ -119,6 +120,9 @@ aside {
         color: black;
       }
     }
+  }
+  &.profile li img {
+    float: none;
   }
 }
 
