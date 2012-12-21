@@ -209,7 +209,7 @@ Devise.setup do |config|
 
   config.omniauth :twitter, ENV["TWITTER_CONSUMER_KEY"], ENV["TWITTER_CONSUMER_SECRET"]
   config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"]
-  config.omniauth  :google_oauth2, "763103318631.apps.googleusercontent.com", "qXtDx5iMObPobpnO9xo9Y7CW"
+  config.omniauth  :google_oauth2, ENV["GOOGLE_CONSUMER_KEY"] , ENV["GOOGLE_CONSUMER_SECRET"]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
