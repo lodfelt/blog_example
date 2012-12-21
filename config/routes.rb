@@ -6,7 +6,7 @@ Blog::Application.routes.draw do
 
   root to: "articles#index"
 
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :index, :update]
 
   resources :articles, only: [:index, :show] do
     resources :comments, only: [:create, :destroy]

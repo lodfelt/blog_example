@@ -33,6 +33,10 @@
     <li>
       <%= link_to "", user_omniauth_authorize_path(:facebook), class: "sign-in-icon sprites-facebook", title: t(:'.sign_in_facebook') %>
     </li>
+    <li class="divider">|</li>
+    <li>
+      <%= link_to "", user_omniauth_authorize_path(:google_oauth2), class: "sign-in-icon sprites-google", title: t(:'.sign_in_google') %>
+    </li>
   <% end %>
 </ul>
 <% end %>

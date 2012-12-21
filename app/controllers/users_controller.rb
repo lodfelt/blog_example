@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
 
   layout "public"
-  load_resource :user
+  load_resource :user, except: :index
 
+
+  def index
+    redirect_to root_path
+  end
   def show
     @recent_posts = @user.articles.limit(3)
     respond_to do |format|
@@ -30,7 +34,7 @@ class UsersController < ApplicationController
 
   def set_ariane
     super
-    user = User.find(params[:id])
-    ariane.add user.name, user_path(user)
+    user = User.find(params[:id]) unless user.blank?
+    ariane.add user.name, user_path(user) unless user.blank?
   end
 end

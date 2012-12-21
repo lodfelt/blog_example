@@ -47,6 +47,7 @@ gem "cancan", "~> 1.6.8"
 gem 'rails-i18n'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"

@@ -1,10 +1,7 @@
+
 class UserPresenter < BasePresenter
 
   presents :user
-
-  def avatar
-    h.image_tag user.avatar_url(:thumb), class: "img-polaroid"
-  end
 
   def links()
     links = user.profile.links.split(" ") unless  user.profile.links.blank?

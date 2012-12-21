@@ -37,4 +37,13 @@ module ApplicationHelper
     presenter
   end
 
+  def avatar(user, version)
+    if user.avatar_url.present?
+      image_tag(user.avatar_url(version), class: "img-polaroid")
+    else
+      gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+      image_tag("http://gravatar.com/avatar/#{gravatar_id}.png?s=200", class: "img-polaroid")
+    end
+  end
+
 end

@@ -1,5 +1,5 @@
 <% modal ||= modal %>
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "#{'form-horizontal' if modal.present?}"}) do |f| %>
   <%= f.input :login, label: t(:'users.email_or_username'), autofocus: true %>
   <div id="control-group-password" class="control-group password optional">
     <label for="user_password" class="password optional control-label"><%= t(:'.password') %></label>
@@ -9,5 +9,5 @@
       <%= link_to "Forgot your password?", new_password_path(resource_name) if modal.present? %>
     </div>
  </div>
-  <%= f.button :submit, t(:'layouts.navigation.log_in') unless modal.present? %>
+  <%= f.button :submit, t(:'layouts.navigation.log_in'), class: "btn btn-primary" unless modal.present? %>
 <% end %>
